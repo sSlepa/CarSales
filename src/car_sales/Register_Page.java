@@ -249,64 +249,68 @@ public class Register_Page extends javax.swing.JFrame {
         String usernameSS = RegisterUsername.getText(); 
         String emailSS = RegisterEmail.getText();
         String passwordSS = String.valueOf(RegisterPassword.getPassword());
+        
+        if(!usernameSS.equals("username") && !emailSS.equals("email") && !passwordSS.equals("password")){
+            
        
-        String query = "INSERT INTO users (id,username,email,password,adm,guest) VALUES (?,?,?,?,?,?);";
-        
-        Connection c = null;
-        
-        java.sql.Statement stmt = null;
-        
-      try {
-          
-        Class.forName("org.sqlite.JDBC");
-        c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
-        
-        stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery( "SELECT * FROM users;" );
-      
-        int ok = 1;
-        while(rs.next() && ok == 1){
-         
-            String uname = rs.getString("username");
-            String emaill  = rs.getString("email");
-            
-            if(usernameSS.equals(uname)){
-                System.out.println("Username folosit");
-                ok = 0;
+            String query = "INSERT INTO users (id,username,email,password,adm,guest) VALUES (?,?,?,?,?,?);";
+
+            Connection c = null;
+
+            java.sql.Statement stmt = null;
+
+          try {
+
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM users;" );
+
+            int ok = 1;
+            while(rs.next() && ok == 1){
+
+
+                String uname = rs.getString("username");
+                String emaill  = rs.getString("email");
+
+                if(usernameSS.equals(uname)){
+                    System.out.println("Username folosit");
+                    ok = 0;
+                }
+                else if(emailSS.equals(emaill)){
+                    System.out.println("email folosit");
+                    ok = 0;
+                }
+
             }
-            else if(emailSS.equals(emaill)){
-                System.out.println("email folosit");
-                ok = 0;
+
+            rs.close();
+            stmt.close();
+
+            if(ok == 1){
+
+                PreparedStatement preparedStatement = c.prepareStatement(query);
+                preparedStatement.setString(2, usernameSS);
+                preparedStatement.setString(3, emailSS);
+                preparedStatement.setString(4, passwordSS);
+                preparedStatement.setInt(5, 0);
+                preparedStatement.setInt(6,0);
+
+                preparedStatement.executeUpdate();
+
+                preparedStatement.close();
+
+
             }
-            
+            c.close();
+          } 
+          catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+
         }
-        
-        rs.close();
-        stmt.close();
-        
-        if(ok == 1){
-        
-            PreparedStatement preparedStatement = c.prepareStatement(query);
-            preparedStatement.setString(2, usernameSS);
-            preparedStatement.setString(3, emailSS);
-            preparedStatement.setString(4, passwordSS);
-            preparedStatement.setInt(5, 0);
-            preparedStatement.setInt(6,0);
-
-            preparedStatement.executeUpdate();
-
-            preparedStatement.close();
-
-            
-        }
-        c.close();
-      } 
-      catch ( Exception e ) {
-        System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-        System.exit(0);
-      }
-      
- 
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**
