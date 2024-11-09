@@ -3,8 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package car_sales;
+import java.sql.*;
 
 import java.awt.Color;
+import java.beans.Statement;
+
 
 /**
  *
@@ -81,6 +84,11 @@ public class Login_Page extends javax.swing.JFrame {
 
         jButton_login.setBackground(new java.awt.Color(153, 153, 255));
         jButton_login.setText("Login");
+        jButton_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_loginActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Forgot Password");
 
@@ -223,6 +231,47 @@ public class Login_Page extends javax.swing.JFrame {
         Home_Page.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Login_MainMenuActionPerformed
+
+    private void jButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loginActionPerformed
+        // TODO add your handling code here:
+        String username = JText_Username.getText();
+        String password = String.valueOf(jPassword.getPassword());
+        
+        Connection c = null;
+        
+        try{
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+
+            java.sql.PreparedStatement stmt = c.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?;");
+            
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            
+            java.sql.ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                //System.out.println("Login");
+                Main_Board main_board = new Main_Board();
+                main_board.setVisible(true);
+                this.dispose();
+                
+            }
+            else{
+                System.out.println("No");
+            }
+       
+            rs.close();
+            stmt.close();
+            c.close();
+        } 
+        catch(Exception e){
+           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+           System.exit(0);
+        }
+
+        
+    }//GEN-LAST:event_jButton_loginActionPerformed
 
     /**
      * @param args the command line arguments

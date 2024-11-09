@@ -252,14 +252,13 @@ public class Register_Page extends javax.swing.JFrame {
         
         if(!usernameSS.equals("username") && !emailSS.equals("email") && !passwordSS.equals("password")){
             
-       
             String query = "INSERT INTO users (id,username,email,password,adm,guest) VALUES (?,?,?,?,?,?);";
 
             Connection c = null;
 
             java.sql.Statement stmt = null;
 
-          try {
+            try {
 
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
@@ -268,11 +267,16 @@ public class Register_Page extends javax.swing.JFrame {
             ResultSet rs = stmt.executeQuery( "SELECT * FROM users;" );
 
             int ok = 1;
+            int idd = 1;
             while(rs.next() && ok == 1){
-
-
+                
                 String uname = rs.getString("username");
                 String emaill  = rs.getString("email");
+                idd = rs.getInt("id");
+                
+                //System.out.print(idd);
+                //System.out.println(uname);
+                
 
                 if(usernameSS.equals(uname)){
                     System.out.println("Username folosit");
@@ -284,11 +288,13 @@ public class Register_Page extends javax.swing.JFrame {
                 }
 
             }
-
+            
             rs.close();
             stmt.close();
 
             if(ok == 1){
+                
+                System.out.println("Register reusit.");
 
                 PreparedStatement preparedStatement = c.prepareStatement(query);
                 preparedStatement.setString(2, usernameSS);
@@ -300,6 +306,8 @@ public class Register_Page extends javax.swing.JFrame {
                 preparedStatement.executeUpdate();
 
                 preparedStatement.close();
+                
+                
 
 
             }

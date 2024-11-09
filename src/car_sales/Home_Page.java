@@ -104,6 +104,9 @@ public class Home_Page extends javax.swing.JFrame {
 
     private void GuestMode_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuestMode_HomeButtonActionPerformed
         // TODO add your handling code here:
+        Main_Board main_board = new Main_Board();
+        main_board.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_GuestMode_HomeButtonActionPerformed
 
     private void Register_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Register_HomeButtonActionPerformed
