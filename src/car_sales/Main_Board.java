@@ -26,22 +26,82 @@ public class Main_Board extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Register_MainMenu = new javax.swing.JButton();
+        Register_MainMenu1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        Register_MainMenu2 = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1060, Short.MAX_VALUE)
+        Register_MainMenu.setBackground(new java.awt.Color(153, 153, 255));
+        Register_MainMenu.setText("Main Menu");
+        Register_MainMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Register_MainMenuActionPerformed(evt);
+            }
+        });
+
+        Register_MainMenu1.setBackground(new java.awt.Color(153, 153, 255));
+        Register_MainMenu1.setText("Main Menu");
+        Register_MainMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Register_MainMenu1ActionPerformed(evt);
+            }
+        });
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 204, 255));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+
+        Register_MainMenu2.setBackground(new java.awt.Color(153, 153, 255));
+        Register_MainMenu2.setText("Main Menu");
+        Register_MainMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Register_MainMenu2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(956, Short.MAX_VALUE)
+                .addComponent(Register_MainMenu2)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(567, Short.MAX_VALUE)
+                .addComponent(Register_MainMenu2)
+                .addContainerGap())
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Register_MainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Register_MainMenuActionPerformed
+        Home_Page Home_Page = new Home_Page();
+        Home_Page.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Register_MainMenuActionPerformed
+
+    private void Register_MainMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Register_MainMenu1ActionPerformed
+        Home_Page Home_Page = new Home_Page();
+        Home_Page.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Register_MainMenu1ActionPerformed
+
+    private void Register_MainMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Register_MainMenu2ActionPerformed
+        Home_Page Home_Page = new Home_Page();
+        Home_Page.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Register_MainMenu2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +139,9 @@ public class Main_Board extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Register_MainMenu;
+    private javax.swing.JButton Register_MainMenu1;
+    private javax.swing.JButton Register_MainMenu2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
