@@ -230,12 +230,12 @@ public class Login_Page extends javax.swing.JFrame {
             stmt.setString(2, password);
             stmt.setString(3, checker);
             stmt.setString(4, password);
-
+          
             java.sql.ResultSet rs = stmt.executeQuery();
 
             if(rs.next()){
                 System.out.println("Login");
-
+                
                 Main_Board main_board = new Main_Board();
                 main_board.setVisible(true);
                 this.dispose();

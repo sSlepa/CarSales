@@ -10,6 +10,8 @@ package car_sales;
  */
 public class Home_Page extends javax.swing.JFrame {
 
+    static String username;
+
     /**
      * Creates new form Home_page
      */
@@ -76,7 +78,7 @@ public class Home_Page extends javax.swing.JFrame {
                     .addComponent(GuestMode_HomeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Register_HomeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Login_HomeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(445, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,13 +92,14 @@ public class Home_Page extends javax.swing.JFrame {
                 .addGap(199, 199, 199))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 610));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 610));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Login_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_HomeButtonActionPerformed
+        username = "login";
         Login_Page Login_Page = new Login_Page();
         Login_Page.setVisible(true);
         this.dispose();
@@ -104,6 +107,7 @@ public class Home_Page extends javax.swing.JFrame {
 
     private void GuestMode_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuestMode_HomeButtonActionPerformed
         // TODO add your handling code here:
+        username = "guest";
         Main_Board main_board = new Main_Board();
         main_board.setVisible(true);
         this.dispose();

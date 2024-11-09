@@ -37,7 +37,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="1070" height="610"/>
+          <AbsoluteConstraints x="0" y="0" width="1030" height="610"/>
         </Constraint>
       </Constraints>
 
@@ -51,7 +51,7 @@
                       <Component id="Register_HomeButton" min="-2" pref="197" max="-2" attributes="0"/>
                       <Component id="Login_HomeButton" min="-2" pref="197" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="445" max="32767" attributes="0"/>
+                  <EmptySpace pref="405" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
