@@ -37,6 +37,7 @@ public class Main_Board extends javax.swing.JFrame {
         jButtonContact = new javax.swing.JButton();
         jButtonAddCar = new javax.swing.JButton();
         jButtonDelCar = new javax.swing.JButton();
+        jButtonHome = new javax.swing.JButton();
 
         Register_MainMenu.setBackground(new java.awt.Color(153, 153, 255));
         Register_MainMenu.setText("Main Menu");
@@ -80,7 +81,24 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
 
+        jButtonContact.setFocusPainted(false);
+        jButtonContact.setBorderPainted(false);
+        jButtonContact.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonContact.setText("Contact");
+        jButtonContact.setBorderPainted(false);
+        jButtonContact.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonContactMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonContactMouseExited(evt);
+            }
+        });
+        jButtonContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonContactActionPerformed(evt);
+            }
+        });
 
         if(Home_Page.username.equals("guest")){
             jButtonAddCar.setVisible(false);
@@ -97,25 +115,47 @@ public class Main_Board extends javax.swing.JFrame {
         }
         jButtonDelCar.setText("Del Car");
 
+        jButtonHome.setFocusPainted(false);      // Elimină border-ul de focus
+        jButtonHome.setBorderPainted(false);
+        jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonHome.setText("Home");
+        jButtonHome.setBorderPainted(false);
+        jButtonHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonHomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonHomeMouseExited(evt);
+            }
+        });
+        jButtonHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButtonDelCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Main_Button_LogOut, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+            .addComponent(Main_Button_LogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonAddCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButtonHome, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(230, 230, 230)
+                .addGap(278, 278, 278)
                 .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonDelCar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonContact, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
                 .addComponent(Main_Button_LogOut))
         );
 
@@ -125,7 +165,7 @@ public class Main_Board extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1063, Short.MAX_VALUE))
+                .addGap(0, 999, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,6 +211,32 @@ public class Main_Board extends javax.swing.JFrame {
         System.out.println(Home_Page.username);
     }//GEN-LAST:event_jButtonAddCarActionPerformed
 
+    private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonHomeActionPerformed
+
+    private void jButtonHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeMouseEntered
+        // TODO add your handling code here:
+        jButtonHome.setBackground(Color.gray);
+    }//GEN-LAST:event_jButtonHomeMouseEntered
+
+    private void jButtonHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeMouseExited
+        // TODO add your handling code here;
+        jButtonHome.setBackground(new java.awt.Color(242, 242, 242));
+    }//GEN-LAST:event_jButtonHomeMouseExited
+
+    private void jButtonContactMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContactMouseEntered
+        jButtonContact.setBackground(Color.gray);
+    }//GEN-LAST:event_jButtonContactMouseEntered
+
+    private void jButtonContactMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContactMouseExited
+        jButtonContact.setBackground(new java.awt.Color(242, 242, 242));
+    }//GEN-LAST:event_jButtonContactMouseExited
+
+    private void jButtonContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonContactActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -213,6 +279,7 @@ public class Main_Board extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddCar;
     private javax.swing.JButton jButtonContact;
     private javax.swing.JButton jButtonDelCar;
+    private javax.swing.JButton jButtonHome;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables

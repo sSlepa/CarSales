@@ -86,6 +86,8 @@ public class Login_Page extends javax.swing.JFrame {
             }
         });
 
+        jButton_login.setFocusPainted(false);
+        jButton_login.setBorderPainted(false);
         jButton_login.setBackground(new java.awt.Color(153, 153, 255));
         jButton_login.setText("Login");
         jButton_login.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +113,8 @@ public class Login_Page extends javax.swing.JFrame {
             }
         });
 
+        Login_MainMenu.setFocusPainted(false);
+        Login_MainMenu.setBorderPainted(false);
         Login_MainMenu.setBackground(new java.awt.Color(153, 153, 255));
         Login_MainMenu.setText("Main Menu");
         Login_MainMenu.addActionListener(new java.awt.event.ActionListener() {
