@@ -240,7 +240,16 @@ public class Login_Page extends javax.swing.JFrame {
             if(rs.next()){
                 System.out.println("Login");
                 
-                Main_Board main_board = new Main_Board();
+                String username = rs.getString("username");
+                String email = rs.getString("email");
+                password = rs.getString("password");
+                boolean isAdmin = rs.getBoolean("adm");
+                boolean isGuest = rs.getBoolean("guest");
+
+                // Creăm un nou obiect User folosind constructorul
+                User user = new User(username, email, password, isAdmin, isGuest);
+                
+                Main_Board main_board = new Main_Board(user);
                 main_board.setVisible(true);
                 this.dispose();
 

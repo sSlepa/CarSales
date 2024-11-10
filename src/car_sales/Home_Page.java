@@ -10,8 +10,6 @@ package car_sales;
  */
 public class Home_Page extends javax.swing.JFrame {
 
-    static String username;
-
     /**
      * Creates new form Home_page
      */
@@ -99,7 +97,6 @@ public class Home_Page extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Login_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_HomeButtonActionPerformed
-        username = "login";
         Login_Page Login_Page = new Login_Page();
         Login_Page.setVisible(true);
         this.dispose();
@@ -107,8 +104,8 @@ public class Home_Page extends javax.swing.JFrame {
 
     private void GuestMode_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuestMode_HomeButtonActionPerformed
         // TODO add your handling code here:
-        username = "guest";
-        Main_Board main_board = new Main_Board();
+        User user = new User("Guest","","",false,true);
+        Main_Board main_board = new Main_Board(user);
         main_board.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_GuestMode_HomeButtonActionPerformed

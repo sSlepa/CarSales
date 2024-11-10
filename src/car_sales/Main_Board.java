@@ -13,10 +13,14 @@ import javax.swing.border.LineBorder;
  */
 public class Main_Board extends javax.swing.JFrame {
 
+    private static User user;
+
     /**
      * Creates new form Main_Board
+     * @param user
      */
-    public Main_Board() {
+    public Main_Board(User user) {
+        this.user = user;
         initComponents();
     }
 
@@ -33,11 +37,11 @@ public class Main_Board extends javax.swing.JFrame {
         Register_MainMenu1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        Main_Button_LogOut = new javax.swing.JButton();
         jButtonContact = new javax.swing.JButton();
         jButtonAddCar = new javax.swing.JButton();
         jButtonDelCar = new javax.swing.JButton();
         jButtonHome = new javax.swing.JButton();
+        Main_Button_LogOut1 = new javax.swing.JButton();
 
         Register_MainMenu.setBackground(new java.awt.Color(153, 153, 255));
         Register_MainMenu.setText("Main Menu");
@@ -62,25 +66,6 @@ public class Main_Board extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 255));
 
-        Main_Button_LogOut.setBackground(new java.awt.Color(242, 242, 242));
-        Main_Button_LogOut.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Main_Button_LogOut.setText("Log out");
-        Main_Button_LogOut.setBorderPainted(false);
-        Main_Button_LogOut.setOpaque(false);
-        Main_Button_LogOut.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Main_Button_LogOutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Main_Button_LogOutMouseExited(evt);
-            }
-        });
-        Main_Button_LogOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Main_Button_LogOutActionPerformed(evt);
-            }
-        });
-
         jButtonContact.setFocusPainted(false);
         jButtonContact.setBorderPainted(false);
         jButtonContact.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -100,7 +85,7 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
 
-        if(Home_Page.username.equals("guest")){
+        if(user.isAdmin() == false){
             jButtonAddCar.setVisible(false);
         }
         jButtonAddCar.setText("Add Car");
@@ -110,10 +95,23 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
 
-        if(Home_Page.username.equals("guest")){
+        if(user.isAdmin() == false){
             jButtonDelCar.setVisible(false);
         }
         jButtonDelCar.setText("Del Car");
+        jButtonDelCar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonDelCarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonDelCarMouseExited(evt);
+            }
+        });
+        jButtonDelCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDelCarActionPerformed(evt);
+            }
+        });
 
         jButtonHome.setFocusPainted(false);      // Elimină border-ul de focus
         jButtonHome.setBorderPainted(false);
@@ -134,20 +132,38 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
 
+        Main_Button_LogOut1.setBackground(new java.awt.Color(242, 242, 242));
+        Main_Button_LogOut1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Main_Button_LogOut1.setText("Log out");
+        Main_Button_LogOut1.setBorderPainted(false);
+        Main_Button_LogOut1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Main_Button_LogOut1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Main_Button_LogOut1MouseExited(evt);
+            }
+        });
+        Main_Button_LogOut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Button_LogOut1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButtonDelCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Main_Button_LogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonAddCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonHome, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+            .addComponent(Main_Button_LogOut1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(278, 278, 278)
+                .addGap(211, 211, 211)
                 .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonDelCar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,8 +171,8 @@ public class Main_Board extends javax.swing.JFrame {
                 .addComponent(jButtonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonContact, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
-                .addComponent(Main_Button_LogOut))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                .addComponent(Main_Button_LogOut1))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -165,14 +181,14 @@ public class Main_Board extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 999, Short.MAX_VALUE))
+                .addGap(0, 954, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 670));
 
         pack();
         setLocationRelativeTo(null);
@@ -190,25 +206,9 @@ public class Main_Board extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Register_MainMenu1ActionPerformed
 
-    private void Main_Button_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Button_LogOutActionPerformed
-        Home_Page Home_Page = new Home_Page();
-        Home_Page.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Main_Button_LogOutActionPerformed
-
-    private void Main_Button_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Main_Button_LogOutMouseEntered
-        // TODO add your handling code here:
-        Main_Button_LogOut.setBackground(Color.gray);
-    }//GEN-LAST:event_Main_Button_LogOutMouseEntered
-
-    private void Main_Button_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Main_Button_LogOutMouseExited
-        // TODO add your handling code here:
-        Main_Button_LogOut.setBackground(new java.awt.Color(242, 242, 242));
-    }//GEN-LAST:event_Main_Button_LogOutMouseExited
-
     private void jButtonAddCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCarActionPerformed
         // TODO add your handling code here:
-        System.out.println(Home_Page.username);
+        
     }//GEN-LAST:event_jButtonAddCarActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -234,8 +234,35 @@ public class Main_Board extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonContactMouseExited
 
     private void jButtonContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContactActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonContactActionPerformed
+
+    private void jButtonDelCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelCarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDelCarActionPerformed
+
+    private void Main_Button_LogOut1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Main_Button_LogOut1MouseEntered
+       Main_Button_LogOut1.setBackground(Color.gray);
+    }//GEN-LAST:event_Main_Button_LogOut1MouseEntered
+
+    private void Main_Button_LogOut1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Main_Button_LogOut1MouseExited
+        Main_Button_LogOut1.setBackground(new java.awt.Color(242, 242, 242));
+    }//GEN-LAST:event_Main_Button_LogOut1MouseExited
+
+    private void Main_Button_LogOut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Button_LogOut1ActionPerformed
+        Home_Page Home_Page = new Home_Page();
+        Home_Page.setVisible(true);
+        user = null;
+        this.dispose();
+    }//GEN-LAST:event_Main_Button_LogOut1ActionPerformed
+
+    private void jButtonDelCarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDelCarMouseEntered
+        jButtonDelCar.setBackground(Color.gray);
+    }//GEN-LAST:event_jButtonDelCarMouseEntered
+
+    private void jButtonDelCarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDelCarMouseExited
+        jButtonDelCar.setBackground(new java.awt.Color(242, 242, 242));
+    }//GEN-LAST:event_jButtonDelCarMouseExited
 
     /**
      * @param args the command line arguments
@@ -267,13 +294,14 @@ public class Main_Board extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main_Board().setVisible(true);
+                new Main_Board(user).setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Main_Button_LogOut;
+    private javax.swing.JButton Main_Button_LogOut1;
     private javax.swing.JButton Register_MainMenu;
     private javax.swing.JButton Register_MainMenu1;
     private javax.swing.JButton jButtonAddCar;

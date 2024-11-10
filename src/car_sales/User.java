@@ -8,44 +8,53 @@ package car_sales;
  *
  * @author adria
  */
-public class User {
-    private static String username;
-    private static String email;
-    private static String password;
-    private static boolean isAdmin;
-    private static boolean isGuest;
+public class User { 
+    private String username;
+    private String email;
+    private String password;
+    private boolean isAdmin;
+    private boolean isGuest;
+
+    // Constructor
+    public User(String username, String email, String password, boolean isAdmin, boolean isGuest) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.isAdmin = isAdmin;
+        this.isGuest = isGuest;
+    }
 
     // Setters
-    public static void setUsername(String username) {
-        User.username = username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public static void setEmail(String email) {
-        User.email = email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public static void setIsAdmin(boolean isAdmin) {
-        User.isAdmin = isAdmin;
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
-    public static void setIsGuest(boolean isGuest) {
-        User.isGuest = isGuest;
+    public void setIsGuest(boolean isGuest) {
+        this.isGuest = isGuest;
     }
 
     // Getters
-    public static String getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public static String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public static boolean isAdmin() {
+    public boolean isAdmin() {
         return isAdmin;
     }
 
-    public static boolean isGuest() {
+    public boolean isGuest() {
         return isGuest;
     }
 }
