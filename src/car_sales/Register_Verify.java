@@ -3,16 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package car_sales;
-
+import java.lang.String;
+import javax.swing.JOptionPane;
 /**
  *
  * @author adria
  */
 public class Register_Verify extends javax.swing.JFrame {
     
-    public Register_Verify() {
+    private static String codde;
+ 
+    public Register_Verify(String codeSS) {
+        this.codde = codeSS;
+        
         initComponents();
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,9 +120,26 @@ public class Register_Verify extends javax.swing.JFrame {
 
     private void OkVerifyRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkVerifyRegisterActionPerformed
         // TODO add your handling code here:
-        System.out.println(VerifyInput.getText());
+       if(VerifyInput.getText().equals(codde)){
+           JOptionPane.showMessageDialog(
+                null,
+                "Contul a fost activat!",
+                "Succes",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+           this.dispose();
+           
+       }
+       else{
+           JOptionPane.showMessageDialog(
+                null,
+                "Codul este incorect!",
+                "Eroare",
+                JOptionPane.ERROR_MESSAGE
+        );
+       }
     }//GEN-LAST:event_OkVerifyRegisterActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -147,7 +170,7 @@ public class Register_Verify extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register_Verify().setVisible(true);
+                new Register_Verify(codde).setVisible(true);
             }
         });
     }

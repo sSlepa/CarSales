@@ -311,12 +311,11 @@ public class Register_Page extends javax.swing.JFrame {
                 
                 String codeSS = EmailSender.sendVerificationEmail(emailSS);
                 
-                Register_Verify verify = new Register_Verify();
+                Register_Verify verify = new Register_Verify(codeSS);
                 
                 verify.setVisible(true);
+                
                 int codeverified = 0;
-                
-                
                 
                 if(codeverified == 1){
                 
