@@ -4,6 +4,9 @@
  */
 package car_sales;
 import java.lang.String;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 /**
  *
@@ -12,9 +15,15 @@ import javax.swing.JOptionPane;
 public class Register_Verify extends javax.swing.JFrame {
     
     private static String codde;
+    private static String username;
+    private static String email;
+    private static String pass;
  
-    public Register_Verify(String codeSS) {
+    public Register_Verify(String codeSS,String username,String email,String pass) {
         this.codde = codeSS;
+        this.username = username;
+        this.email = email;
+        this.pass = pass;
         
         initComponents();
     }
@@ -121,12 +130,42 @@ public class Register_Verify extends javax.swing.JFrame {
     private void OkVerifyRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkVerifyRegisterActionPerformed
         // TODO add your handling code here:
        if(VerifyInput.getText().equals(codde)){
+           
+           String query = "INSERT INTO users (id,username,email,password,adm,guest) VALUES (?,?,?,?,?,?);";
+           
+           Connection c = null;
+
+           java.sql.Statement stmt = null;
+           
+           try {
+
+                Class.forName("org.sqlite.JDBC");
+                c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+                System.out.println("Register reusit.");
+
+                PreparedStatement preparedStatement = c.prepareStatement(query);
+                preparedStatement.setString(2, username);
+                preparedStatement.setString(3, email);
+                preparedStatement.setString(4, pass);
+                preparedStatement.setInt(5, 0);
+                preparedStatement.setInt(6,0);
+
+                preparedStatement.executeUpdate();
+
+                preparedStatement.close();
+            
+           }catch(Exception e){
+                System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+                System.exit(0);
+           }
+           
            JOptionPane.showMessageDialog(
                 null,
                 "Contul a fost activat!",
                 "Succes",
                 JOptionPane.INFORMATION_MESSAGE
         );
+           
            this.dispose();
            
        }
@@ -170,7 +209,7 @@ public class Register_Verify extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register_Verify(codde).setVisible(true);
+                new Register_Verify(codde,username,email,pass).setVisible(true);
             }
         });
     }

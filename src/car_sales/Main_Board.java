@@ -35,7 +35,7 @@ public class Main_Board extends javax.swing.JFrame {
 
         Register_MainMenu = new javax.swing.JButton();
         Register_MainMenu1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        MainPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jButtonContact = new javax.swing.JButton();
         jButtonAddCar = new javax.swing.JButton();
@@ -64,7 +64,7 @@ public class Main_Board extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+        MainPanel.setBackground(new java.awt.Color(0, 204, 255));
 
         jButtonContact.setFocusPainted(false);
         jButtonContact.setBorderPainted(false);
@@ -175,20 +175,20 @@ public class Main_Board extends javax.swing.JFrame {
                 .addComponent(Main_Button_LogOut1))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
+        MainPanel.setLayout(MainPanelLayout);
+        MainPanelLayout.setHorizontalGroup(
+            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainPanelLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 954, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        MainPanelLayout.setVerticalGroup(
+            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 670));
+        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 670));
 
         pack();
         setLocationRelativeTo(null);
@@ -301,6 +301,7 @@ public class Main_Board extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MainPanel;
     private javax.swing.JButton Main_Button_LogOut1;
     private javax.swing.JButton Register_MainMenu;
     private javax.swing.JButton Register_MainMenu1;
@@ -308,7 +309,6 @@ public class Main_Board extends javax.swing.JFrame {
     private javax.swing.JButton jButtonContact;
     private javax.swing.JButton jButtonDelCar;
     private javax.swing.JButton jButtonHome;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

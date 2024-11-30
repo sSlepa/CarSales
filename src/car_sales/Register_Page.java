@@ -311,28 +311,10 @@ public class Register_Page extends javax.swing.JFrame {
                 
                 String codeSS = EmailSender.sendVerificationEmail(emailSS);
                 
-                Register_Verify verify = new Register_Verify(codeSS);
+                Register_Verify verify = new Register_Verify(codeSS,usernameSS,emailSS,passwordSS);
                 
                 verify.setVisible(true);
-                
-                int codeverified = 0;
-                
-                if(codeverified == 1){
-                
-                    System.out.println("Register reusit.");
 
-                    PreparedStatement preparedStatement = c.prepareStatement(query);
-                    preparedStatement.setString(2, usernameSS);
-                    preparedStatement.setString(3, emailSS);
-                    preparedStatement.setString(4, passwordSS);
-                    preparedStatement.setInt(5, 0);
-                    preparedStatement.setInt(6,0);
-
-                    preparedStatement.executeUpdate();
-
-                    preparedStatement.close();
-                
-                }
             }
             
             c.close();
@@ -341,7 +323,6 @@ public class Register_Page extends javax.swing.JFrame {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
           }
-
         }
         else{
             

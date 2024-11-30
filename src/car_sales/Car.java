@@ -1,3 +1,5 @@
+package car_sales;
+
 import javax.swing.*;
 import java.util.List;
 
