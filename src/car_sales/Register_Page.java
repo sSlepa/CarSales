@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
@@ -294,11 +295,21 @@ public class Register_Page extends javax.swing.JFrame {
                 
 
                 if(usernameSS.equals(uname)){
-                    System.out.println("Username folosit");
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Username folosit",
+                        "Eroare",
+                        JOptionPane.ERROR_MESSAGE
+                    );
                     ok = 0;
                 }
                 else if(emailSS.equals(emaill)){
-                    System.out.println("email folosit");
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Email folosit",
+                        "Eroare",
+                        JOptionPane.ERROR_MESSAGE
+                    );
                     ok = 0;
                 }
 
@@ -316,6 +327,9 @@ public class Register_Page extends javax.swing.JFrame {
                 verify.setVisible(true);
 
             }
+            Home_Page home_page = new Home_Page();
+            this.dispose();
+            home_page.setVisible(true);
             
             c.close();
           } 

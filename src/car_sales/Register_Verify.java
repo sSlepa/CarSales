@@ -168,6 +168,7 @@ public class Register_Verify extends javax.swing.JFrame {
            
            this.dispose();
            
+           
        }
        else{
            JOptionPane.showMessageDialog(
