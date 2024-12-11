@@ -234,7 +234,7 @@ public class Login_Page extends javax.swing.JFrame {
             java.sql.ResultSet rs = stmt.executeQuery();
 
             if(rs.next()){
-                System.out.println("Login");
+                //System.out.println("Login");
                 
                 String username = rs.getString("username");
                 String email = rs.getString("email");

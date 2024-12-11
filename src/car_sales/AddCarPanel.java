@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -48,6 +49,7 @@ public class AddCarPanel extends javax.swing.JPanel {
         jTextAddColor = new javax.swing.JTextField();
         jButtonAddCar = new javax.swing.JButton();
         jButtonAddImages = new javax.swing.JButton();
+        jButtonMakeDir = new javax.swing.JButton();
 
         jTextField10.setText("transmission");
 
@@ -162,6 +164,13 @@ public class AddCarPanel extends javax.swing.JPanel {
             }
         });
 
+        jButtonMakeDir.setText("Make dir");
+        jButtonMakeDir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMakeDirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -185,7 +194,10 @@ public class AddCarPanel extends javax.swing.JPanel {
                             .addComponent(jButtonAddImages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(433, 433, 433)
-                        .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(468, 468, 468)
+                        .addComponent(jButtonMakeDir)))
                 .addContainerGap(191, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -213,7 +225,9 @@ public class AddCarPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextAddTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAddImages))
-                .addGap(82, 82, 82)
+                .addGap(26, 26, 26)
+                .addComponent(jButtonMakeDir)
+                .addGap(33, 33, 33)
                 .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(222, Short.MAX_VALUE))
         );
@@ -443,10 +457,34 @@ public class AddCarPanel extends javax.swing.JPanel {
         FolderSelector fs = new FolderSelector();
     }//GEN-LAST:event_jButtonAddImagesActionPerformed
 
+    private void jButtonMakeDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMakeDirActionPerformed
+        String path = "C:\\Users\\adria\\Documents\\NetBeansProjects\\Car_Sales\\src\\car_sales\\imagini";
+        
+        File currentDir = new File(path);
+
+        // Obține lista de fișiere și directoare
+        File[] files = currentDir.listFiles();
+
+        // Verifică dacă directorul conține fișiere
+        
+        int dirCount = 0;
+        for (File file : files) {
+            if (file.isDirectory()) {
+                    dirCount++;
+                }
+            }
+       String folderName = "Car_" + Integer.toString(dirCount + 1);
+       
+       File folder = new File(path + File.separator + folderName);
+       folder.mkdir();
+       
+    }//GEN-LAST:event_jButtonMakeDirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddCar;
     private javax.swing.JButton jButtonAddImages;
+    private javax.swing.JButton jButtonMakeDir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextAddColor;
     private javax.swing.JTextField jTextAddFuel;
@@ -459,4 +497,8 @@ public class AddCarPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextAddYear;
     private javax.swing.JTextField jTextField10;
     // End of variables declaration//GEN-END:variables
+
+    private String toString(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

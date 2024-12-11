@@ -67,6 +67,10 @@
                           <EmptySpace min="-2" pref="433" max="-2" attributes="0"/>
                           <Component id="jButtonAddCar" min="-2" pref="151" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="468" max="-2" attributes="0"/>
+                          <Component id="jButtonMakeDir" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="191" max="32767" attributes="0"/>
               </Group>
@@ -102,7 +106,9 @@
                       <Component id="jTextAddTrans" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonAddImages" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jButtonMakeDir" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="jButtonAddCar" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace pref="222" max="32767" attributes="0"/>
               </Group>
@@ -206,6 +212,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddImagesActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonMakeDir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Make dir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMakeDirActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

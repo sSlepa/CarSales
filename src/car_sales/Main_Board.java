@@ -54,7 +54,7 @@ public class Main_Board extends javax.swing.JFrame {
         MainPanel.setLayout(new BoxLayout(MainPanel, BoxLayout.Y_AXIS));
 
         for(int i = 5 * pagenr + 1 ; i <= 5 * (pagenr + 1); i++){
-            System.out.println(pagenr);
+            //System.out.println(pagenr);
             // Panoul pentru fiecare mașină
             JPanel carPanel = new JPanel();
             carPanel.setLayout(new BorderLayout());
