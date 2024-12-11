@@ -99,6 +99,7 @@ public class Main_Board extends javax.swing.JFrame {
         Main_Button_LogOut1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabelPageNumber = new javax.swing.JLabel();
 
         Register_MainMenu.setBackground(new java.awt.Color(153, 153, 255));
         Register_MainMenu.setText("Main Menu");
@@ -269,6 +270,9 @@ public class Main_Board extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, -1, 30));
 
+        jLabelPageNumber.setText("Page : " + 1);
+        getContentPane().add(jLabelPageNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 640, 80, 30));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -286,12 +290,18 @@ public class Main_Board extends javax.swing.JFrame {
     }//GEN-LAST:event_Register_MainMenu1ActionPerformed
 
     private void jButtonAddCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCarActionPerformed
-        // TODO add your handling code here:
-        
+        MainPanel.removeAll();
+        AddCarPanel addcar = new AddCarPanel();
+        MainPanel.add(addcar);
+        MainPanel.revalidate();
+        MainPanel.repaint();
     }//GEN-LAST:event_jButtonAddCarActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
-        // TODO add your handling code here:
+        MainPanel.setVisible(true);
+        MainPanel.removeAll();
+        pagenr = 0;
+        load_page();
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jButtonHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeMouseEntered
@@ -347,6 +357,7 @@ public class Main_Board extends javax.swing.JFrame {
         if(pagenr + 1 <= 5){
             pagenr++;
             MainPanel.removeAll();
+            jLabelPageNumber.setText("Page : " + (pagenr + 1));
             load_page();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -355,6 +366,7 @@ public class Main_Board extends javax.swing.JFrame {
         if(pagenr - 1 >= 0){
             pagenr--;
             MainPanel.removeAll();
+            jLabelPageNumber.setText("Page : " + (pagenr + 1));
             load_page();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -408,6 +420,7 @@ public class Main_Board extends javax.swing.JFrame {
     private javax.swing.JButton jButtonContact;
     private javax.swing.JButton jButtonDelCar;
     private javax.swing.JButton jButtonHome;
+    private javax.swing.JLabel jLabelPageNumber;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
