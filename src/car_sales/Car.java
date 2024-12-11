@@ -18,6 +18,9 @@ public class Car {
 
     public Car(String name, String model, double price, int kilometers, String transmission, String fuelType,
                String year, int power, String color, int previousOwners, List<ImageIcon> images) {
+        /**
+         * Test comentariu
+         */
         this.name = name;
         this.model = model;
         this.price = price;

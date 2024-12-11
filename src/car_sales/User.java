@@ -4,10 +4,6 @@
  */
 package car_sales;
 
-/**
- *
- * @author adria
- */
 public class User { 
     private String username;
     private String email;

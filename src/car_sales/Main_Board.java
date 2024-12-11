@@ -4,7 +4,19 @@
  */
 package car_sales;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 /**
@@ -14,16 +26,56 @@ import javax.swing.border.LineBorder;
 public class Main_Board extends javax.swing.JFrame {
 
     private static User user;
-
+    private int pagenr = 0;
+    //private int pagemax = 
+    
     /**
      * Creates new form Main_Board
      * @param user
      */
-    public Main_Board(User user) {
+    public Main_Board(User user){
         this.user = user;
+        
         initComponents();
+        
+        load_page();
+        
     }
+    
+    public void load_page(){
+        
+        MainPanel.setLayout(new BoxLayout(MainPanel, BoxLayout.Y_AXIS));
 
+        for(int i = 5 * pagenr + 1 ; i <= 5 * (pagenr + 1); i++){
+            System.out.println(pagenr);
+            // Panoul pentru fiecare mașină
+            JPanel carPanel = new JPanel();
+            carPanel.setLayout(new BorderLayout());
+            carPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY)); // Border pentru delimitare
+            carPanel.setPreferredSize(new Dimension(800, 120)); // Dimensiune fixă a fiecărui panou
+
+            JLabel carImage = new JLabel("Imagine Mașină " + i, JLabel.CENTER);
+            carImage.setPreferredSize(new Dimension(100, 100));
+            carImage.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Border pentru imagine
+
+         
+            JLabel carDetails = new JLabel("<html><b>Mitsubishi Lancer EVO X</b><br>Preț: 34.990€<br>Km: 44.100</html>");
+            carDetails.setVerticalAlignment(SwingConstants.CENTER);
+
+            carPanel.add(carImage, BorderLayout.WEST);  // Imaginea în stânga
+            carPanel.add(carDetails, BorderLayout.CENTER); // Detalii în centru
+
+            // Adăugăm carPanel în MainPanel
+            MainPanel.add(carPanel);
+
+           
+        }
+
+        // Revalidăm și repictăm panoul pentru a afișa noile componente
+        MainPanel.revalidate();
+        MainPanel.repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,13 +87,18 @@ public class Main_Board extends javax.swing.JFrame {
 
         Register_MainMenu = new javax.swing.JButton();
         Register_MainMenu1 = new javax.swing.JButton();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         MainPanel = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        SidePanel = new javax.swing.JPanel();
         jButtonContact = new javax.swing.JButton();
         jButtonAddCar = new javax.swing.JButton();
         jButtonDelCar = new javax.swing.JButton();
         jButtonHome = new javax.swing.JButton();
         Main_Button_LogOut1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         Register_MainMenu.setBackground(new java.awt.Color(153, 153, 255));
         Register_MainMenu.setText("Main Menu");
@@ -59,12 +116,31 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
+
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 255));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MainPanel.setBackground(new java.awt.Color(0, 204, 255));
+
+        javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
+        MainPanel.setLayout(MainPanelLayout);
+        MainPanelLayout.setHorizontalGroup(
+            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 950, Short.MAX_VALUE)
+        );
+        MainPanelLayout.setVerticalGroup(
+            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 950, 640));
 
         jButtonContact.setFocusPainted(false);
         jButtonContact.setBorderPainted(false);
@@ -150,19 +226,19 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
+        SidePanel.setLayout(SidePanelLayout);
+        SidePanelLayout.setHorizontalGroup(
+            SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButtonDelCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonAddCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButtonHome, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+            .addComponent(jButtonHome, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(Main_Button_LogOut1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        SidePanelLayout.setVerticalGroup(
+            SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePanelLayout.createSequentialGroup()
                 .addGap(211, 211, 211)
                 .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -175,20 +251,23 @@ public class Main_Board extends javax.swing.JFrame {
                 .addComponent(Main_Button_LogOut1))
         );
 
-        javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
-        MainPanel.setLayout(MainPanelLayout);
-        MainPanelLayout.setHorizontalGroup(
-            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 954, Short.MAX_VALUE))
-        );
-        MainPanelLayout.setVerticalGroup(
-            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 670));
 
-        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 670));
+        jButton1.setText("Next");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 640, -1, 30));
+
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, -1, 30));
 
         pack();
         setLocationRelativeTo(null);
@@ -264,6 +343,22 @@ public class Main_Board extends javax.swing.JFrame {
         jButtonDelCar.setBackground(new java.awt.Color(242, 242, 242));
     }//GEN-LAST:event_jButtonDelCarMouseExited
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(pagenr + 1 <= 5){
+            pagenr++;
+            MainPanel.removeAll();
+            load_page();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(pagenr - 1 >= 0){
+            pagenr--;
+            MainPanel.removeAll();
+            load_page();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -298,6 +393,7 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
         
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -305,10 +401,15 @@ public class Main_Board extends javax.swing.JFrame {
     private javax.swing.JButton Main_Button_LogOut1;
     private javax.swing.JButton Register_MainMenu;
     private javax.swing.JButton Register_MainMenu1;
+    private javax.swing.JPanel SidePanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAddCar;
     private javax.swing.JButton jButtonContact;
     private javax.swing.JButton jButtonDelCar;
     private javax.swing.JButton jButtonHome;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.Statement;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -18,9 +20,29 @@ import javax.swing.Timer;
  */
 public class Register_Page extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Register_page
-     */
+    public static String hashPassword(String password) {
+        try {
+            // Alegem algoritmul de hash (SHA-256)
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+
+            // Convertim parola într-un array de bytes
+            byte[] hashedBytes = digest.digest(password.getBytes());
+
+            // Convertim rezultatul într-un string hexazecimal
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hashedBytes) {
+                String hex = Integer.toHexString(0xff & b); // Extragem valoarea hexazecimală
+                if (hex.length() == 1) {
+                    hexString.append('0'); // Adăugăm un '0' pentru valori mai mici de 16
+                }
+                hexString.append(hex);
+            }
+
+            return hexString.toString(); // Returnăm hash-ul final
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("Error: Algoritm de hash necunoscut!", e);
+        }
+    }
     public Register_Page() {
         initComponents();
     }
@@ -268,6 +290,8 @@ public class Register_Page extends javax.swing.JFrame {
         
         if(!usernameSS.equals("username") && !emailSS.equals("email") && !passwordSS.equals("password")){
             
+            passwordSS = hashPassword(passwordSS);
+            
             String query = "INSERT INTO users (id,username,email,password,adm,guest) VALUES (?,?,?,?,?,?);";
 
             Connection c = null;
@@ -327,10 +351,7 @@ public class Register_Page extends javax.swing.JFrame {
                 verify.setVisible(true);
 
             }
-            Home_Page home_page = new Home_Page();
-            this.dispose();
-            home_page.setVisible(true);
-            
+                        
             c.close();
           } 
           catch ( Exception e ) {

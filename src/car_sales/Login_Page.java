@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package car_sales;
 import java.sql.*;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.Statement;
-import java.util.concurrent.TimeUnit;
 import javax.swing.Timer;
 
 /**
@@ -229,7 +223,9 @@ public class Login_Page extends javax.swing.JFrame {
             c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
 
             java.sql.PreparedStatement stmt = c.prepareStatement("SELECT * FROM users WHERE (username = ? AND password = ?) OR (email = ? AND password = ?);");
-
+            
+            password = Register_Page.hashPassword(password);
+            
             stmt.setString(1, checker);
             stmt.setString(2, password);
             stmt.setString(3, checker);
@@ -337,6 +333,9 @@ public class Login_Page extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login_Page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
