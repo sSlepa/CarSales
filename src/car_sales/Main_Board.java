@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.Vector;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -26,6 +27,7 @@ import javax.swing.border.LineBorder;
 public class Main_Board extends javax.swing.JFrame {
 
     private static User user;
+    private static Vector<Car> vect;
     private int pagenr = 0;
     //private int pagemax = 
     
@@ -38,7 +40,12 @@ public class Main_Board extends javax.swing.JFrame {
         
         initComponents();
         
+        load_cars();
         load_page();
+        
+    }
+    
+    public void load_cars(){
         
     }
     
@@ -260,7 +267,7 @@ public class Main_Board extends javax.swing.JFrame {
                 jButtonNextActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 640, -1, 30));
+        getContentPane().add(jButtonNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 640, 130, 30));
 
         jButtonBack.setText("Back");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -268,10 +275,10 @@ public class Main_Board extends javax.swing.JFrame {
                 jButtonBackActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, -1, 30));
+        getContentPane().add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 640, 130, 30));
 
         jLabelPageNumber.setText("Page : " + 1);
-        getContentPane().add(jLabelPageNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 640, 80, 30));
+        getContentPane().add(jLabelPageNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 80, 30));
 
         pack();
         setLocationRelativeTo(null);
