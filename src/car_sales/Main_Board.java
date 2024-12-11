@@ -97,8 +97,8 @@ public class Main_Board extends javax.swing.JFrame {
         jButtonDelCar = new javax.swing.JButton();
         jButtonHome = new javax.swing.JButton();
         Main_Button_LogOut1 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonNext = new javax.swing.JButton();
+        jButtonBack = new javax.swing.JButton();
         jLabelPageNumber = new javax.swing.JLabel();
 
         Register_MainMenu.setBackground(new java.awt.Color(153, 153, 255));
@@ -254,21 +254,21 @@ public class Main_Board extends javax.swing.JFrame {
 
         getContentPane().add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 670));
 
-        jButton1.setText("Next");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNext.setText("Next");
+        jButtonNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonNextActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 640, -1, 30));
+        getContentPane().add(jButtonNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 640, -1, 30));
 
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonBackActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, -1, 30));
+        getContentPane().add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, -1, 30));
 
         jLabelPageNumber.setText("Page : " + 1);
         getContentPane().add(jLabelPageNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 640, 80, 30));
@@ -293,6 +293,9 @@ public class Main_Board extends javax.swing.JFrame {
         MainPanel.removeAll();
         AddCarPanel addcar = new AddCarPanel();
         MainPanel.add(addcar);
+        jButtonBack.setVisible(false);
+        jButtonNext.setVisible(false);
+        jLabelPageNumber.setVisible(false);
         MainPanel.revalidate();
         MainPanel.repaint();
     }//GEN-LAST:event_jButtonAddCarActionPerformed
@@ -301,6 +304,9 @@ public class Main_Board extends javax.swing.JFrame {
         MainPanel.setVisible(true);
         MainPanel.removeAll();
         pagenr = 0;
+        jButtonBack.setVisible(true);
+        jButtonNext.setVisible(true);
+        jLabelPageNumber.setVisible(true);
         load_page();
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
@@ -353,23 +359,23 @@ public class Main_Board extends javax.swing.JFrame {
         jButtonDelCar.setBackground(new java.awt.Color(242, 242, 242));
     }//GEN-LAST:event_jButtonDelCarMouseExited
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
         if(pagenr + 1 <= 5){
             pagenr++;
             MainPanel.removeAll();
             jLabelPageNumber.setText("Page : " + (pagenr + 1));
             load_page();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonNextActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
         if(pagenr - 1 >= 0){
             pagenr--;
             MainPanel.removeAll();
             jLabelPageNumber.setText("Page : " + (pagenr + 1));
             load_page();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,12 +420,12 @@ public class Main_Board extends javax.swing.JFrame {
     private javax.swing.JButton Register_MainMenu;
     private javax.swing.JButton Register_MainMenu1;
     private javax.swing.JPanel SidePanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAddCar;
+    private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonContact;
     private javax.swing.JButton jButtonDelCar;
     private javax.swing.JButton jButtonHome;
+    private javax.swing.JButton jButtonNext;
     private javax.swing.JLabel jLabelPageNumber;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
