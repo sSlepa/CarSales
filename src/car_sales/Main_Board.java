@@ -13,6 +13,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -32,6 +34,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.border.LineBorder;
@@ -43,7 +46,7 @@ import javax.swing.border.LineBorder;
 public class Main_Board extends javax.swing.JFrame {
 
     private static User user;
-    private static Vector<Car> vect;
+    private static List<Car> vect;
     private int pagenr = 0;
     private int pagemax = 0;
     
@@ -51,91 +54,62 @@ public class Main_Board extends javax.swing.JFrame {
      * Creates new form Main_Board
      * @param user
      */
-    public Main_Board(User user){
+    public Main_Board(User user,List<Car> anterior){
         this.user = user;
+        this.vect = anterior;
+        this.pagemax = anterior.size() / 5 + 1;
         
         initComponents();
-        
-        vect = new Vector<>();
-        load_cars();
         load_page();
         
     }
-    
-    public void load_cars(){
-        java.sql.Connection c = null;
+    private void showCarDetails(Car car) {
+        
+        jButtonBack.setVisible(false);
+        jButtonNext.setVisible(false);
+        jLabelPageNumber.setVisible(false);
+        // Creăm un nou JFrame pentru a arăta informațiile extinse
+        MainPanel.removeAll();
 
-        try{
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+        // Creăm un nou panel cu informații detaliate despre mașină
+        JPanel carDetailPanel = new JPanel();
+        
+        carDetailPanel.setLayout(new BorderLayout());
 
-            java.sql.PreparedStatement stmt = c.prepareStatement("SELECT * FROM cars");
-            
-            java.sql.ResultSet rs = stmt.executeQuery();
+        JLabel carImage = new JLabel();
+        carDetailPanel.add(carImage, BorderLayout.WEST);
+        carImage.setPreferredSize(new Dimension(800, 500));
+        carImage.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        BufferedImage originalImage = car.getImages().get(0); // Prima imagine
+        Image scaledImage = originalImage.getScaledInstance(800, 500, Image.SCALE_SMOOTH); // Scalare
+        ImageIcon carImageIcon = new ImageIcon(scaledImage);
+        carImage.setIcon(carImageIcon);
+        carImage.setHorizontalAlignment(JLabel.CENTER); // Centrare pe orizontală
+        carImage.setVerticalAlignment(JLabel.CENTER);  // Border pentru imagine
 
-            while(rs.next()){
-                
-                String name = rs.getString("name");
-                String model = rs.getString("model");
-                String price = rs.getString("price");
-                String kilometers = rs.getString("km");
-                String transmission = rs.getString("transmission");
-                String fuelType = rs.getString("fuel");
-                String year = rs.getString("year");
-                String power = rs.getString("power");
-                String color = rs.getString("color");
-                String imagesPath = rs.getString("images");
-                
-                List<BufferedImage> images = new ArrayList<>();
-                
-                java.io.File folder = new File(imagesPath);
-                if (folder.exists() && folder.isDirectory()) {
-                    // Listați toate fișierele din folder
-                    java.io.File[] files;
-                    files = folder.listFiles(new FilenameFilter() {
-                        @Override
-                        public boolean accept(File dir, String name) {
-                            // Filtrăm doar fișierele de tip imagine
-                            return name.toLowerCase().endsWith(".jpg") ||
-                                    name.toLowerCase().endsWith(".png") ||
-                                    name.toLowerCase().endsWith(".jpeg");
-                        }
-                    });
+        // Detalii extinse despre mașină
+        JTextArea carDetails = new JTextArea();
+        carDetails.setText("<html>"
+                            + "<b>Model:</b> " + car.getModel() + "<br>"
+                            + "<b>Preț:</b> " + car.getPrice() + "<br>"
+                            + "<b>Kilometraj:</b> " + car.getKilometers() + "<br>"
+                            + "<b>Transmisie:</b> " + car.getTransmission() + "<br>"
+                            + "<b>Combustibil:</b> " + car.getFuelType() + "<br>"
+                            + "<b>An:</b> " + car.getYear() + "<br>"
+                            + "<b>Putere:</b> " + car.getPower() + "<br>"
+                            + "<b>Culoare:</b> " + car.getColor() + "</html>");
+        carDetails.setEditable(false);
+        carDetails.setFont(new Font("Arial", Font.PLAIN, 16));
+        carDetailPanel.add(new JScrollPane(carDetails), BorderLayout.CENTER);
 
-                    if (files != null) {
-                        for (File file : files) {
-                            try {
-                                // Încărcați imaginea în memorie
-                                BufferedImage image = ImageIO.read(file);
-                                if (image != null) {
-                                    images.add(image); // Adăugați imaginea în listă
-                                }
-                            } catch (IOException e) {
-                                System.err.println("Nu s-a putut încărca imaginea: " + file.getName());
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                } 
-                else {
-                    System.err.println("Folderul specificat nu există sau nu este un director.");
-                }
+        // Adăugăm noul panel în MainPanel
+        MainPanel.add(carDetailPanel);
 
-                
-                System.out.println("Număr de imagini încărcate: " + images.size());
-                vect.add(new Car(name,model,price,kilometers,transmission,fuelType,year,power,color,images));
-                
-            }
-            pagemax = vect.size()/5 + 1;
-            
-            rs.close();
-            stmt.close();
-            c.close();
-        }
-        catch(Exception e){
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-            System.exit(0);
-        }
+        // Actualizăm fereastra pentru a reflecta modificările
+        MainPanel.revalidate();
+        MainPanel.repaint();
+        
+
     }
     
     public void load_page(){
@@ -154,12 +128,12 @@ public class Main_Board extends javax.swing.JFrame {
 
             // Crearea JLabel pentru imaginea mașinii
             JLabel carImage = new JLabel();
-            carImage.setPreferredSize(new Dimension(300, 180));
+            carImage.setPreferredSize(new Dimension(280, 150));
             carImage.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Border pentru imagine
             
             if (!vect.get(i).getImages().isEmpty()) {
                 BufferedImage originalImage = vect.get(i).getImages().get(0); // Prima imagine
-                Image scaledImage = originalImage.getScaledInstance(300, 180, Image.SCALE_SMOOTH); // Scalare
+                Image scaledImage = originalImage.getScaledInstance(280, 150, Image.SCALE_SMOOTH); // Scalare
                 ImageIcon carImageIcon = new ImageIcon(scaledImage);
 
                 carImage.setIcon(carImageIcon);
@@ -168,9 +142,9 @@ public class Main_Board extends javax.swing.JFrame {
             }
 
             // Crearea JLabel pentru detalii despre mașină
-            JLabel carDetails = new JLabel("<html><b>" + vect.get(i).getName() + " " + vect.get(i).getModel() + "</b><br>"
-                    + "Preț: " + vect.get(i).getPrice() + "<br>"
-                    + "Km: " + vect.get(i).getKilometers() + "<br>");
+            JLabel carDetails = new JLabel("<html><b>" + vect.get(i).getName() + " " + vect.get(i).getModel() + "</b><br><br>"
+                    + "Preț: " + vect.get(i).getPrice() + "<br><br>"
+                    + "Km: " + vect.get(i).getKilometers() + "");
             carDetails.setVerticalAlignment(SwingConstants.CENTER);
 
             // Adăugarea componentelor în JPanel
@@ -179,6 +153,14 @@ public class Main_Board extends javax.swing.JFrame {
             carPanel.add(carDetails, BorderLayout.CENTER); // Detalii în centru
 
             // Adăugăm carPanel în MainPanel
+            final int xx = i;
+            carPanel.addMouseListener(new MouseAdapter() {
+                public void mouseClicked(MouseEvent e) {
+                    // Când se face click pe panou, se deschide un nou JPanel cu informații extinse
+                    showCarDetails(vect.get(xx));
+                }
+            });
+            
             MainPanel.add(carPanel);
 
            
@@ -247,14 +229,14 @@ public class Main_Board extends javax.swing.JFrame {
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 970, Short.MAX_VALUE)
+            .addGap(0, 1180, Short.MAX_VALUE)
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 640, Short.MAX_VALUE)
         );
 
-        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 970, 640));
+        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1180, 640));
 
         jButtonContact.setFocusPainted(false);
         jButtonContact.setBorderPainted(false);
@@ -373,7 +355,7 @@ public class Main_Board extends javax.swing.JFrame {
                 jButtonNextActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 640, 130, 30));
+        getContentPane().add(jButtonNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 640, 130, 30));
 
         jButtonBack.setText("Back");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -381,10 +363,10 @@ public class Main_Board extends javax.swing.JFrame {
                 jButtonBackActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 640, 130, 30));
+        getContentPane().add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, 130, 30));
 
         jLabelPageNumber.setText("Page : " + 1);
-        getContentPane().add(jLabelPageNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 80, 30));
+        getContentPane().add(jLabelPageNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 640, 80, 30));
 
         pack();
         setLocationRelativeTo(null);
@@ -520,7 +502,7 @@ public class Main_Board extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main_Board(user).setVisible(true);
+                new Main_Board(user,vect).setVisible(true);
             }
         });
         

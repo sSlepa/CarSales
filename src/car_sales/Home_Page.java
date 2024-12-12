@@ -4,22 +4,110 @@
  */
 package car_sales;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.List;
+import javax.imageio.ImageIO;
+
 /**
  *
  * @author adria
  */
 public class Home_Page extends javax.swing.JFrame {
-
+    
+    private static List<Car> vect;
+    
     /**
      * Creates new form Home_page
-     */
+     * 
+    **/
+    public List<Car> getList(){
+        return vect;
+    }
     public Home_Page() {
         
         initComponents();
-        
+        vect = new ArrayList<>();
+        load_cars();
         
     }
-   
+    public void load_cars(){
+        java.sql.Connection c = null;
+
+        try{
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+
+            java.sql.PreparedStatement stmt = c.prepareStatement("SELECT * FROM cars");
+            
+            java.sql.ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()){
+                
+                String name = rs.getString("name");
+                String model = rs.getString("model");
+                String price = rs.getString("price");
+                String kilometers = rs.getString("km");
+                String transmission = rs.getString("transmission");
+                String fuelType = rs.getString("fuel");
+                String year = rs.getString("year");
+                String power = rs.getString("power");
+                String color = rs.getString("color");
+                String imagesPath = rs.getString("images");
+                
+                List<BufferedImage> images = new ArrayList<>();
+                
+                java.io.File folder = new File(imagesPath);
+                if (folder.exists() && folder.isDirectory()) {
+                    // Listați toate fișierele din folder
+                    java.io.File[] files;
+                    files = folder.listFiles(new FilenameFilter() {
+                        @Override
+                        public boolean accept(File dir, String name) {
+                            // Filtrăm doar fișierele de tip imagine
+                            return name.toLowerCase().endsWith(".jpg") ||
+                                    name.toLowerCase().endsWith(".png") ||
+                                    name.toLowerCase().endsWith(".jpeg");
+                        }
+                    });
+
+                    if (files != null) {
+                        for (File file : files) {
+                            try {
+                                // Încărcați imaginea în memorie
+                                BufferedImage image = ImageIO.read(file);
+                                if (image != null) {
+                                    images.add(image); // Adăugați imaginea în listă
+                                }
+                            } catch (IOException e) {
+                                System.err.println("Nu s-a putut încărca imaginea: " + file.getName());
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                } 
+                else {
+                    System.err.println("Folderul specificat nu există sau nu este un director.");
+                }
+
+                
+                //System.out.println("Număr de imagini încărcate: " + images.size());
+                vect.add(new Car(name,model,price,kilometers,transmission,fuelType,year,power,color,images));
+                
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        }
+        catch(Exception e){
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -91,7 +179,7 @@ public class Home_Page extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Login_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_HomeButtonActionPerformed
-        Login_Page Login_Page = new Login_Page();
+        Login_Page Login_Page = new Login_Page(this.getList());
         Login_Page.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Login_HomeButtonActionPerformed
@@ -99,7 +187,7 @@ public class Home_Page extends javax.swing.JFrame {
     private void GuestMode_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuestMode_HomeButtonActionPerformed
         // TODO add your handling code here:
         User user = new User("Guest","","",false,true);
-        Main_Board main_board = new Main_Board(user);
+        Main_Board main_board = new Main_Board(user,this.getList());
         main_board.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_GuestMode_HomeButtonActionPerformed

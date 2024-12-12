@@ -4,6 +4,7 @@ import java.sql.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.Timer;
 
 /**
@@ -12,10 +13,13 @@ import javax.swing.Timer;
  */
 public class Login_Page extends javax.swing.JFrame {
 
+    private static List<Car> ls;
     /**
      * Creates new form Login_Page
      */
-    public Login_Page() {
+    public Login_Page(List<Car> a) {
+        
+        this.ls = a;
         
         initComponents();
         
@@ -246,7 +250,7 @@ public class Login_Page extends javax.swing.JFrame {
                 // Creăm un nou obiect User folosind constructorul
                 User user = new User(username, email, password, isAdmin, isGuest);
                 
-                Main_Board main_board = new Main_Board(user);
+                Main_Board main_board = new Main_Board(user,ls);
                 main_board.setVisible(true);
                 this.dispose();
 
@@ -342,7 +346,7 @@ public class Login_Page extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login_Page().setVisible(true);
+                new Login_Page(ls).setVisible(true);
             }
         });
     }
