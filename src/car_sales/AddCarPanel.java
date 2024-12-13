@@ -261,7 +261,7 @@ public class AddCarPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextAddFuelActionPerformed
 
     private void jButtonAddCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCarActionPerformed
-            String name,model,price,km,trans,fuel,year,power,color,imagesPath;
+            String name,model,price,km,trans,fuel,year,power,engine,color,imagesPath;
             name = jTextAddName.getText();
             model = jTextAddModel.getText();
             price = jTextAddPrice.getText();
@@ -271,9 +271,10 @@ public class AddCarPanel extends javax.swing.JPanel {
             year = jTextAddYear.getText();
             power = jTextAddPower.getText();
             color = jTextAddColor.getText();
+            engine = jTextAddEngine.getText();
             imagesPath = FolderSelector.folderPath;
             
-            String query = "INSERT INTO cars (name,model,price,km,transmission,fuel,year,power,color,images) VALUES (?,?,?,?,?,?,?,?,?,?);";
+            String query = "INSERT INTO cars (name,model,price,km,transmission,fuel,year,power,engine,color,imagess) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
            
             Connection c = null;
 
@@ -281,7 +282,7 @@ public class AddCarPanel extends javax.swing.JPanel {
             
             if (!name.equals("name") && !model.equals("model") && !price.equals("price") && 
                 !km.equals("km") && !trans.equals("trans") && !fuel.equals("fuel") && !year.equals("year") && 
-                !power.equals("power") && !color.equals("color")) {
+                !power.equals("power") && !color.equals("color") && !engine.equals("engine")) {
                 try {
 
                     Class.forName("org.sqlite.JDBC");
@@ -297,8 +298,9 @@ public class AddCarPanel extends javax.swing.JPanel {
                     preparedStatement.setString(6, fuel);
                     preparedStatement.setString(7, year);
                     preparedStatement.setString(8, power);
-                    preparedStatement.setString(9, color);
-                    preparedStatement.setString(10, imagesPath);
+                    preparedStatement.setString(9,engine);
+                    preparedStatement.setString(10, color);
+                    preparedStatement.setString(11, imagesPath);
 
                     preparedStatement.executeUpdate();
 
