@@ -70,39 +70,9 @@ public class Main_Board extends javax.swing.JFrame {
         jLabelPageNumber.setVisible(false);
         // Creăm un nou JFrame pentru a arăta informațiile extinse
         MainPanel.removeAll();
-
-        // Creăm un nou panel cu informații detaliate despre mașină
-        JPanel carDetailPanel = new JPanel();
         
-        carDetailPanel.setLayout(new BorderLayout());
-
-        JLabel carImage = new JLabel();
-        carDetailPanel.add(carImage, BorderLayout.WEST);
-        carImage.setPreferredSize(new Dimension(800, 500));
-        carImage.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        BufferedImage originalImage = car.getImages().get(0); // Prima imagine
-        Image scaledImage = originalImage.getScaledInstance(800, 500, Image.SCALE_SMOOTH); // Scalare
-        ImageIcon carImageIcon = new ImageIcon(scaledImage);
-        carImage.setIcon(carImageIcon);
-        carImage.setHorizontalAlignment(JLabel.CENTER); // Centrare pe orizontală
-        carImage.setVerticalAlignment(JLabel.CENTER);  // Border pentru imagine
-
-        // Detalii extinse despre mașină
-        JTextArea carDetails = new JTextArea();
-        carDetails.setText("<html>"
-                            + "<b>Model:</b> " + car.getModel() + "<br>"
-                            + "<b>Preț:</b> " + car.getPrice() + "<br>"
-                            + "<b>Kilometraj:</b> " + car.getKilometers() + "<br>"
-                            + "<b>Transmisie:</b> " + car.getTransmission() + "<br>"
-                            + "<b>Combustibil:</b> " + car.getFuelType() + "<br>"
-                            + "<b>An:</b> " + car.getYear() + "<br>"
-                            + "<b>Putere:</b> " + car.getPower() + "<br>"
-                            + "<b>Culoare:</b> " + car.getColor() + "</html>");
-        carDetails.setEditable(false);
-        carDetails.setFont(new Font("Arial", Font.PLAIN, 16));
-        carDetailPanel.add(new JScrollPane(carDetails), BorderLayout.CENTER);
-
-        // Adăugăm noul panel în MainPanel
+        carDetailPanel carDetailPanel = new carDetailPanel(car);
+        
         MainPanel.add(carDetailPanel);
 
         // Actualizăm fereastra pentru a reflecta modificările
@@ -365,6 +335,7 @@ public class Main_Board extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, 130, 30));
 
+        jLabelPageNumber.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelPageNumber.setText("Page : " + 1);
         getContentPane().add(jLabelPageNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 640, 80, 30));
 
@@ -458,7 +429,7 @@ public class Main_Board extends javax.swing.JFrame {
         if(pagenr + 1 < pagemax){
             pagenr++;
             MainPanel.removeAll();
-            jLabelPageNumber.setText("Page : " + (pagenr + 1));
+            jLabelPageNumber.setText("<html><b>" + "Page : " + "<html><b>" + (pagenr + 1));
             load_page();
         }
     }//GEN-LAST:event_jButtonNextActionPerformed
@@ -467,7 +438,7 @@ public class Main_Board extends javax.swing.JFrame {
         if(pagenr - 1 >= 0){
             pagenr--;
             MainPanel.removeAll();
-            jLabelPageNumber.setText("Page : " + (pagenr + 1));
+            jLabelPageNumber.setText("<html><b>" + "Page : " + "<html><b>" + (pagenr + 1));
             load_page();
         }
     }//GEN-LAST:event_jButtonBackActionPerformed

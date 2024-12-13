@@ -56,8 +56,9 @@ public class Home_Page extends javax.swing.JFrame {
                 String fuelType = rs.getString("fuel");
                 String year = rs.getString("year");
                 String power = rs.getString("power");
+                String engine = rs.getString("engine");
                 String color = rs.getString("color");
-                String imagesPath = rs.getString("images");
+                String imagesPath = rs.getString("imagess");
                 
                 List<BufferedImage> images = new ArrayList<>();
                 
@@ -96,7 +97,7 @@ public class Home_Page extends javax.swing.JFrame {
 
                 
                 //System.out.println("Număr de imagini încărcate: " + images.size());
-                vect.add(new Car(name,model,price,kilometers,transmission,fuelType,year,power,color,images));
+                vect.add(new Car(name,model,price,kilometers,transmission,fuelType,year,power,engine,color,images));
                 
             }
             rs.close();

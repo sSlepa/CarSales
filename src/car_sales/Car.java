@@ -13,6 +13,7 @@ public class Car {
     private String fuelType;
     private String year;
     private String power;
+    private String engine;
     private String color;
     private List<BufferedImage> images;
     
@@ -30,7 +31,7 @@ public class Car {
      * @param images imaginile reprezentate pe pagina masinii curente
      */
     public Car(String name, String model, String price, String kilometers, String transmission, String fuelType,
-               String year, String power, String color, List<BufferedImage> images) {
+               String year, String power, String engine, String color, List<BufferedImage> images) {
         
         this.name = name;
         this.model = model;
@@ -40,18 +41,61 @@ public class Car {
         this.fuelType = fuelType;
         this.year = year;
         this.power = power;
+        this.engine = engine;
         this.color = color;
         this.images = images;
     }
 
-    public String getName() { return name; }
-    public String getModel() { return model; }
-    public String getPrice() { return price; }
-    public String getKilometers() { return kilometers; }
-    public String getTransmission() { return transmission; }
-    public String getFuelType() { return fuelType; }
-    public String getYear() { return year; }
-    public String getPower() { return power; }
-    public String getColor() { return color; }
-    public List<BufferedImage> getImages() { return images; }
+    /**
+     * Functie de tip get ce returneaza numele
+     */
+    public String getName() { 
+        return name; 
+    }
+    /**
+     * Functie de tip get ce returneaza modelul
+     */
+    public String getModel() { 
+        return model; 
+    }
+    /**
+     * Functie de tip get ce returneaza pretul
+     */
+    public String getPrice() {
+        return price; 
+    }
+    /**
+     * Functie de tip get ce returneaza kilometrii
+     */
+    public String getKilometers() { 
+        return kilometers; 
+    }
+    /**
+     * Functie de tip get ce returneaza transmisia
+     */
+    public String getTransmission() { 
+        return transmission; 
+    }
+    /**
+     * Functie de tip get ce returneaza combistibilul
+     */
+    public String getFuelType() { 
+        return fuelType; 
+    }
+    
+    public String getYear() { 
+        return year; 
+    }
+    public String getPower() { 
+        return power; 
+    }
+    public String getEngine(){
+        return engine;
+    }
+    public String getColor() { 
+        return color; 
+    }
+    public List<BufferedImage> getImages() { 
+        return images; 
+    }
 }

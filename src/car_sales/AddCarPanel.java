@@ -50,6 +50,7 @@ public class AddCarPanel extends javax.swing.JPanel {
         jButtonAddCar = new javax.swing.JButton();
         jButtonAddImages = new javax.swing.JButton();
         jButtonMakeDir = new javax.swing.JButton();
+        jTextAddEngine = new javax.swing.JTextField();
 
         jTextField10.setText("transmission");
 
@@ -171,6 +172,16 @@ public class AddCarPanel extends javax.swing.JPanel {
             }
         });
 
+        jTextAddEngine.setText("engine");
+        jTextAddEngine.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextAddEngineFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextAddEngineFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -179,25 +190,24 @@ public class AddCarPanel extends javax.swing.JPanel {
                 .addGap(235, 235, 235)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextAddPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextAddModel, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextAddName, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextAddKm, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextAddTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(250, 250, 250)
+                        .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButtonMakeDir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextAddPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(jTextAddModel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(jTextAddName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(jTextAddKm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(jTextAddTrans, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
                         .addGap(63, 63, 63)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextAddColor)
                             .addComponent(jTextAddYear)
                             .addComponent(jTextAddFuel)
                             .addComponent(jTextAddPower)
-                            .addComponent(jButtonAddImages, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(285, 285, 285)
-                        .addComponent(jButtonMakeDir)))
+                            .addComponent(jButtonAddImages, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextAddEngine, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(292, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -220,16 +230,18 @@ public class AddCarPanel extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextAddKm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextAddColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextAddEngine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextAddTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextAddColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonMakeDir)
                     .addComponent(jButtonAddImages))
-                .addGap(26, 26, 26)
-                .addComponent(jButtonMakeDir)
-                .addGap(33, 33, 33)
+                .addGap(42, 42, 42)
                 .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -481,6 +493,21 @@ public class AddCarPanel extends javax.swing.JPanel {
        
     }//GEN-LAST:event_jButtonMakeDirActionPerformed
 
+    private void jTextAddEngineFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextAddEngineFocusGained
+        if(jTextAddEngine.getText().trim().toLowerCase().equals("engine")){
+            jTextAddEngine.setText("");
+            jTextAddEngine.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jTextAddEngineFocusGained
+
+    private void jTextAddEngineFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextAddEngineFocusLost
+        if(jTextAddEngine.getText().trim().toLowerCase().equals("engine")
+            || jTextAddEngine.getText().trim().toLowerCase().equals("")){
+            jTextAddEngine.setText("engine");
+            jTextAddEngine.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jTextAddEngineFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddCar;
@@ -488,6 +515,7 @@ public class AddCarPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButtonMakeDir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextAddColor;
+    private javax.swing.JTextField jTextAddEngine;
     private javax.swing.JTextField jTextAddFuel;
     private javax.swing.JTextField jTextAddKm;
     private javax.swing.JTextField jTextAddModel;
