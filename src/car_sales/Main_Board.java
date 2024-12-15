@@ -141,11 +141,34 @@ public class Main_Board extends javax.swing.JFrame {
                     );
 
                     if (response == JOptionPane.YES_OPTION) {
-                        vect.remove(carIndex); // Șterge mașina din vector
                         
+          
                         /// Sterg din DB;
                         
+                        java.sql.Connection c = null;
+                        try{
+                            Class.forName("org.sqlite.JDBC");
+                            c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+
+                            java.sql.PreparedStatement stmt = c.prepareStatement("DELETE FROM cars WHERE id = ?");
+                            
+                            stmt.setString(1, vect.get(carIndex).getId());
+                            
+                            System.out.println(vect.get(carIndex).getId());
+                            
+                            //System.exit(0);
+                            
+                            stmt.execute();
+                            
+                            stmt.close();
+                            c.close();
+                        }
+                        catch(Exception ee){
+                            System.err.println( ee.getClass().getName() + ": " + ee.getMessage() );
+                            System.exit(0);
+                        }
                         
+                        vect.remove(carIndex);
                         
                         MainPanel.remove(carPanel); // Șterge panoul din UI
                         MainPanel.revalidate(); // Revalidare layout

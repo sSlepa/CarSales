@@ -19,10 +19,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-/**
- *
- * @author adria
- */
 public class AddCarPanel extends javax.swing.JPanel {
 
     private int size;
