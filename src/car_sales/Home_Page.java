@@ -48,6 +48,7 @@ public class Home_Page extends javax.swing.JFrame {
 
             while(rs.next()){
                 
+                String id = rs.getString("id");
                 String name = rs.getString("name");
                 String model = rs.getString("model");
                 String price = rs.getString("price");
@@ -97,7 +98,7 @@ public class Home_Page extends javax.swing.JFrame {
 
                 
                 //System.out.println("Număr de imagini încărcate: " + images.size());
-                vect.add(new Car(name,model,price,kilometers,transmission,fuelType,year,power,engine,color,images));
+                vect.add(new Car(id,name,model,price,kilometers,transmission,fuelType,year,power,engine,color,images));
                 
             }
             rs.close();

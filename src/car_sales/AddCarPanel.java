@@ -25,11 +25,12 @@ import javax.swing.JScrollPane;
  */
 public class AddCarPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form AddCarPanel
-     */
-    public AddCarPanel() {
+    private int size;
+    
+    public AddCarPanel(int size) {
+        this.size = size;
         initComponents();
+        jLabelCarNum.setText("Cars : " + size);
     }
     
     @SuppressWarnings("unchecked")
@@ -51,6 +52,7 @@ public class AddCarPanel extends javax.swing.JPanel {
         jButtonAddImages = new javax.swing.JButton();
         jButtonMakeDir = new javax.swing.JButton();
         jTextAddEngine = new javax.swing.JTextField();
+        jLabelCarNum = new javax.swing.JLabel();
 
         jTextField10.setText("transmission");
 
@@ -182,6 +184,8 @@ public class AddCarPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabelCarNum.setText("Cars");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,7 +195,9 @@ public class AddCarPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(250, 250, 250)
-                        .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabelCarNum))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButtonMakeDir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -240,7 +246,9 @@ public class AddCarPanel extends javax.swing.JPanel {
                     .addComponent(jButtonMakeDir)
                     .addComponent(jButtonAddImages))
                 .addGap(42, 42, 42)
-                .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCarNum))
                 .addContainerGap(229, Short.MAX_VALUE))
         );
 
@@ -274,7 +282,7 @@ public class AddCarPanel extends javax.swing.JPanel {
             engine = jTextAddEngine.getText();
             imagesPath = FolderSelector.folderPath;
             
-            String query = "INSERT INTO cars (name,model,price,km,transmission,fuel,year,power,engine,color,imagess) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+            String query = "INSERT INTO cars (id,name,model,price,km,transmission,fuel,year,power,engine,color,imagess) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
            
             Connection c = null;
 
@@ -290,17 +298,17 @@ public class AddCarPanel extends javax.swing.JPanel {
                     //System.out.println("Register reusit.");
 
                     PreparedStatement preparedStatement = c.prepareStatement(query);
-                    preparedStatement.setString(1, name);
-                    preparedStatement.setString(2, model);
-                    preparedStatement.setString(3, price);
-                    preparedStatement.setString(4, km);
-                    preparedStatement.setString(5, trans);
-                    preparedStatement.setString(6, fuel);
-                    preparedStatement.setString(7, year);
-                    preparedStatement.setString(8, power);
-                    preparedStatement.setString(9,engine);
-                    preparedStatement.setString(10, color);
-                    preparedStatement.setString(11, imagesPath);
+                    preparedStatement.setString(2, name);
+                    preparedStatement.setString(3, model);
+                    preparedStatement.setString(4, price);
+                    preparedStatement.setString(5, km);
+                    preparedStatement.setString(6, trans);
+                    preparedStatement.setString(7, fuel);
+                    preparedStatement.setString(8, year);
+                    preparedStatement.setString(9, power);
+                    preparedStatement.setString(10,engine);
+                    preparedStatement.setString(11, color);
+                    preparedStatement.setString(12, imagesPath);
 
                     preparedStatement.executeUpdate();
 
@@ -318,6 +326,8 @@ public class AddCarPanel extends javax.swing.JPanel {
                      "Succes",
                      JOptionPane.INFORMATION_MESSAGE
              );
+                size++;
+                jLabelCarNum.setText("Cars : " + size);
             }
             else{
                 JOptionPane.showMessageDialog(
@@ -515,6 +525,7 @@ public class AddCarPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButtonAddCar;
     private javax.swing.JButton jButtonAddImages;
     private javax.swing.JButton jButtonMakeDir;
+    private javax.swing.JLabel jLabelCarNum;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextAddColor;
     private javax.swing.JTextField jTextAddEngine;

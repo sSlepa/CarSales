@@ -49,6 +49,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
                           <Component id="jButtonAddCar" min="-2" pref="151" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="jLabelCarNum" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -110,7 +112,10 @@
                       <Component id="jButtonAddImages" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="jButtonAddCar" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonAddCar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="jLabelCarNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="229" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -231,6 +236,11 @@
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextAddEngineFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextAddEngineFocusLost"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCarNum">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cars"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

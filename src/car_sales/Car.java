@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.util.List;
 
 public class Car {
+    private String id;
     private String name;
     private String model;
     private String price;
@@ -30,9 +31,10 @@ public class Car {
      * @param color Culoare curenta
      * @param images imaginile reprezentate pe pagina masinii curente
      */
-    public Car(String name, String model, String price, String kilometers, String transmission, String fuelType,
+    public Car(String id, String name, String model, String price, String kilometers, String transmission, String fuelType,
                String year, String power, String engine, String color, List<BufferedImage> images) {
         
+        this.id = id;
         this.name = name;
         this.model = model;
         this.price = price;
@@ -79,6 +81,9 @@ public class Car {
     /**
      * Functie de tip get ce returneaza combistibilul
      */
+    public String getId() { 
+        return id; 
+    }
     public String getFuelType() { 
         return fuelType; 
     }

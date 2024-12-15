@@ -41,7 +41,7 @@ public class Testing {
         List<BufferedImage> images = new ArrayList<>();
 
         
-        Car car = new Car("BMW", "M3", "50000", "30000", "Manual", "Petrol", "2022", "450 HP", "3.0L V6", "Black", images);
+        Car car = new Car("0","BMW", "M3", "50000", "30000", "Manual", "Petrol", "2022", "450 HP", "3.0L V6", "Black", images);
 
         // Verificăm valorile prin getter-e
         assertEquals("BMW", car.getName());
