@@ -11,7 +11,14 @@ public class User {
     private boolean isAdmin;
     private boolean isGuest;
 
-    // Constructor
+    /**
+     * 
+     * @param username nume user
+     * @param email email user
+     * @param password parola criptata
+     * @param isAdmin identificator admin
+     * @param isGuest identificator guest
+     */
     public User(String username, String email, String password, boolean isAdmin, boolean isGuest) {
         this.username = username;
         this.email = email;

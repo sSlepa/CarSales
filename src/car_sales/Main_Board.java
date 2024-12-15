@@ -399,7 +399,7 @@ public class Main_Board extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonContactActionPerformed
 
     private void jButtonDelCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelCarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonDelCarActionPerformed
 
     private void Main_Button_LogOut1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Main_Button_LogOut1MouseEntered
