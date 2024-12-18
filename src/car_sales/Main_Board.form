@@ -112,16 +112,25 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jButtonDelCar" alignment="0" max="32767" attributes="0"/>
-              <Component id="jButtonContact" alignment="0" max="32767" attributes="0"/>
+              <Component id="jButtonContact" alignment="0" pref="80" max="32767" attributes="0"/>
               <Component id="jButtonAddCar" alignment="0" max="32767" attributes="0"/>
-              <Component id="jButtonHome" alignment="0" pref="80" max="32767" attributes="0"/>
+              <Component id="jButtonHome" alignment="0" max="32767" attributes="0"/>
               <Component id="Main_Button_LogOut1" alignment="0" max="32767" attributes="0"/>
+              <Component id="jLabelUserPhoto" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
+                  <Component id="jLabelUserPhoto" min="-2" pref="59" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                   <Component id="jButtonAddCar" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jButtonDelCar" min="-2" pref="41" max="-2" attributes="0"/>
@@ -210,6 +219,14 @@
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Main_Button_LogOut1MouseExited"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Main_Button_LogOut1ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelUserPhoto">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="USER"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

@@ -25,6 +25,8 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -52,11 +54,7 @@ public class Main_Board extends javax.swing.JFrame {
     private int pagenr = 0;
     private int pagemax = 0;
     static int del = 0;
-    
-    /**
-     * Creates new form Main_Board
-     * @param user
-     */
+   
     public Main_Board(User user,List<Car> anterior){
         this.user = user;
         this.vect = anterior;
@@ -64,6 +62,7 @@ public class Main_Board extends javax.swing.JFrame {
         
         initComponents();
         load_page();
+        usr_page();
         
     }
     private void showCarDetails(Car car) {
@@ -83,6 +82,24 @@ public class Main_Board extends javax.swing.JFrame {
         MainPanel.repaint();
         
 
+    }
+    
+    public void usr_page(){
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File("C:\\Users\\adria\\Documents\\NetBeansProjects\\Car_Sales\\src\\car_sales\\imagini\\useracc.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Main_Board.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (image != null) {
+            Image scaledImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH); // Scalare
+            ImageIcon carImageIcon = new ImageIcon(scaledImage);
+            
+            jLabelUserPhoto.setIcon(carImageIcon);
+            jLabelUserPhoto.setHorizontalAlignment(JLabel.CENTER); // Centrare pe orizontală
+            jLabelUserPhoto.setVerticalAlignment(JLabel.CENTER);   // Centrare pe verticală
+        }
+        
     }
     
     public void load_page(){
@@ -222,6 +239,8 @@ public class Main_Board extends javax.swing.JFrame {
         jButtonDelCar = new javax.swing.JButton();
         jButtonHome = new javax.swing.JButton();
         Main_Button_LogOut1 = new javax.swing.JButton();
+        jLabelUserPhoto = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jButtonNext = new javax.swing.JButton();
         jButtonBack = new javax.swing.JButton();
         jLabelPageNumber = new javax.swing.JLabel();
@@ -352,20 +371,31 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("USER");
+
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
         SidePanelLayout.setHorizontalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButtonDelCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButtonContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButtonContact, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
             .addComponent(jButtonAddCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButtonHome, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(jButtonHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Main_Button_LogOut1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(SidePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         SidePanelLayout.setVerticalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePanelLayout.createSequentialGroup()
-                .addGap(211, 211, 211)
+                .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(130, 130, 130)
                 .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonDelCar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -560,7 +590,9 @@ public class Main_Board extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDelCar;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonNext;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelPageNumber;
+    private javax.swing.JLabel jLabelUserPhoto;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
