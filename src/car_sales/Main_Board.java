@@ -108,27 +108,25 @@ public class Main_Board extends javax.swing.JFrame {
 
         for(int i = 5 * pagenr ; i < min(5 * (pagenr + 1) ,vect.size()); i++){
             //System.out.println(pagenr);
-            // Panoul pentru fiecare mașină
-           
-            // Crearea JPanel pentru mașină
+            
             JPanel carPanel = new JPanel();
             carPanel.setLayout(new BorderLayout());
-            carPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY)); // Border pentru delimitare
+            carPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY)); 
             carPanel.setPreferredSize(new Dimension(800, 120)); // Dimensiune fixă a fiecărui panou
 
-            // Crearea JLabel pentru imaginea mașinii
+            
             JLabel carImage = new JLabel();
             carImage.setPreferredSize(new Dimension(280, 150));
-            carImage.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Border pentru imagine
+            carImage.setBorder(BorderFactory.createLineBorder(Color.BLACK)); 
             
             if (!vect.get(i).getImages().isEmpty()) {
-                BufferedImage originalImage = vect.get(i).getImages().get(0); // Prima imagine
-                Image scaledImage = originalImage.getScaledInstance(280, 150, Image.SCALE_SMOOTH); // Scalare
+                BufferedImage originalImage = vect.get(i).getImages().get(0); 
+                Image scaledImage = originalImage.getScaledInstance(280, 150, Image.SCALE_SMOOTH);
                 ImageIcon carImageIcon = new ImageIcon(scaledImage);
 
                 carImage.setIcon(carImageIcon);
-                carImage.setHorizontalAlignment(JLabel.CENTER); // Centrare pe orizontală
-                carImage.setVerticalAlignment(JLabel.CENTER);   // Centrare pe verticală
+                carImage.setHorizontalAlignment(JLabel.CENTER); 
+                carImage.setVerticalAlignment(JLabel.CENTER);   
             }
 
             // Crearea JLabel pentru detalii despre mașină
@@ -152,8 +150,8 @@ public class Main_Board extends javax.swing.JFrame {
                 deleteButton.addActionListener(e -> {
                     int response = JOptionPane.showConfirmDialog(
                         MainPanel,
-                        "Ești sigur că vrei să ștergi această mașină?",
-                        "Confirmare ștergere",
+                        "Esti sigur ca vrei sa stergi aceasta mașin?",
+                        "Confirmare stergere",
                         JOptionPane.YES_NO_OPTION
                     );
 
@@ -187,21 +185,21 @@ public class Main_Board extends javax.swing.JFrame {
                         
                         vect.remove(carIndex);
                         
-                        MainPanel.remove(carPanel); // Șterge panoul din UI
-                        MainPanel.revalidate(); // Revalidare layout
-                        MainPanel.repaint(); // Repictare UI
+                        MainPanel.remove(carPanel); 
+                        MainPanel.revalidate(); 
+                        MainPanel.repaint(); 
                     }
                 });
 
                 deletePanel.add(deleteButton);
             }
 
-            // Adăugarea componentelor în JPanel
-            carPanel.add(carImage, BorderLayout.WEST);  // Imaginea în stânga
-            carPanel.add(carDetails, BorderLayout.CENTER); // Detalii în centru
+            
+            carPanel.add(carImage, BorderLayout.WEST);  
+            carPanel.add(carDetails, BorderLayout.CENTER); 
 
             if (del == 1 && deletePanel != null) {
-                carPanel.add(deletePanel, BorderLayout.EAST);  // Butonul de ștergere în dreapta
+                carPanel.add(deletePanel, BorderLayout.EAST); 
             }
 
             if (del == 0) {
@@ -214,11 +212,11 @@ public class Main_Board extends javax.swing.JFrame {
                 });
             }
 
-            // Adăugăm carPanel în MainPanel
+            
             MainPanel.add(carPanel);
         }
 
-    // Revalidăm și repictăm panoul pentru a afișa noile componente
+ 
         MainPanel.revalidate();
         MainPanel.repaint();
     }

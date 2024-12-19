@@ -79,27 +79,45 @@ public class Car {
         return transmission; 
     }
     /**
-     * Functie de tip get ce returneaza combistibilul
+     * Functie de tip get ce returneaza id
      */
     public String getId() { 
         return id; 
     }
+    /**
+     * Functie de tip get ce returneaza combistibilul
+     */
     public String getFuelType() { 
         return fuelType; 
     }
     
+    /**
+     * Functie de tip get ce returneaza an
+     */
     public String getYear() { 
         return year; 
     }
+    /**
+     * Functie de tip get ce returneaza puterea
+     */
     public String getPower() { 
         return power; 
     }
+    /**
+     * Functie de tip get ce returneaza motorul
+     */
     public String getEngine(){
         return engine;
     }
+    /**
+     * Functie de tip get ce returneaza culoarea
+     */
     public String getColor() { 
         return color; 
     }
+    /**
+     * Functie de tip get ce returneaza vectorul de imagini
+     */
     public List<BufferedImage> getImages() { 
         return images; 
     }
