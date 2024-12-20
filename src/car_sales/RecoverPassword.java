@@ -1,6 +1,7 @@
 package car_sales;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class RecoverPassword extends javax.swing.JFrame {
 
@@ -95,7 +96,6 @@ public class RecoverPassword extends javax.swing.JFrame {
     private void jButtonConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmActionPerformed
         String mail = jTextEmail.getText();
         String password = EmailSender.sendVerificationEmail(mail, 2);
-        
         Connection c = null;
         
         try{
@@ -108,6 +108,30 @@ public class RecoverPassword extends javax.swing.JFrame {
             stmt.setString(1,Register_Page.hashPassword(password));
             stmt.setString(2,mail);
             
+            int rowsAffected = stmt.executeUpdate();
+            
+            if(rowsAffected > 0) {
+                
+                JOptionPane.showMessageDialog(
+                    null,
+                    "Parola a fost schimbata",
+                    "Succes",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+                this.dispose();
+            } 
+            else {
+                JOptionPane.showMessageDialog(
+                    null,
+                    "Email-ul nu a fost gasit",
+                    "Eroare",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                this.dispose();
+                
+            }
+            stmt.close();
+            c.close();
             
         }
         catch(Exception e){

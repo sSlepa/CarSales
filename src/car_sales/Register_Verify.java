@@ -165,7 +165,7 @@ public class Register_Verify extends javax.swing.JFrame {
                 "Contul a fost activat!",
                 "Succes",
                 JOptionPane.INFORMATION_MESSAGE
-        );
+            );
            
            this.dispose();
            
