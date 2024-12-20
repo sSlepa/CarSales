@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.beans.Statement;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -39,7 +40,8 @@ public class Register_Page extends javax.swing.JFrame {
             }
 
             return hexString.toString(); // Returnăm hash-ul final
-        } catch (NoSuchAlgorithmException e) {
+        } 
+        catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("Error: Algoritm de hash necunoscut!", e);
         }
     }
@@ -138,6 +140,11 @@ public class Register_Page extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 RegisterPasswordFocusLost(evt);
+            }
+        });
+        RegisterPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterPasswordActionPerformed(evt);
             }
         });
 
@@ -347,6 +354,7 @@ public class Register_Page extends javax.swing.JFrame {
                 String codeSS = EmailSender.sendVerificationEmail(emailSS);
                 
                 Register_Verify verify = new Register_Verify(codeSS,usernameSS,emailSS,passwordSS);
+                verify.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 
                 verify.setVisible(true);
 
@@ -372,6 +380,10 @@ public class Register_Page extends javax.swing.JFrame {
                 jLabelRegisterFailed.setVisible(true);
             }
     }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void RegisterPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegisterPasswordActionPerformed
 
     /**
      * @param args the command line arguments

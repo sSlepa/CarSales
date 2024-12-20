@@ -3,6 +3,8 @@ package car_sales;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +19,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.sql.*;
+import javax.swing.JFrame;
 
 public class UserPage extends javax.swing.JPanel {
     
@@ -29,6 +32,12 @@ public class UserPage extends javax.swing.JPanel {
         this.mainboard = mainboard;
         initComponents();
         
+        load_img();
+        
+        
+    }
+    
+    void load_img(){
         BufferedImage image = null;
         try {
             image = ImageIO.read(new File(user.getProfilePic()));
@@ -49,8 +58,6 @@ public class UserPage extends javax.swing.JPanel {
         jLabelEmail.setText("Email: " + user.getEmail());
         jLabelEmail.setFont(new Font("Serif", Font.PLAIN, 32));
         jLabelEmail.setForeground(Color.white);
-        
-        
     }
     
     @SuppressWarnings("unchecked")
@@ -62,6 +69,7 @@ public class UserPage extends javax.swing.JPanel {
         jLabelName = new javax.swing.JLabel();
         jLabelEmail = new javax.swing.JLabel();
         jButtonChangeAvatar = new javax.swing.JButton();
+        jButtonChangePass = new javax.swing.JButton();
 
         jPanelUserPage.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -78,6 +86,13 @@ public class UserPage extends javax.swing.JPanel {
             }
         });
 
+        jButtonChangePass.setText("ChangePassword");
+        jButtonChangePass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangePassActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelUserPageLayout = new javax.swing.GroupLayout(jPanelUserPage);
         jPanelUserPage.setLayout(jPanelUserPageLayout);
         jPanelUserPageLayout.setHorizontalGroup(
@@ -86,31 +101,35 @@ public class UserPage extends javax.swing.JPanel {
                 .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelUserPageLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelUserPageLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addGap(89, 89, 89)
                         .addComponent(jButtonChangeAvatar)))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonChangePass)
+                    .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanelUserPageLayout.setVerticalGroup(
             jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUserPageLayout.createSequentialGroup()
                 .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelUserPageLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelUserPageLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelUserPageLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonChangeAvatar)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonChangeAvatar)
+                    .addComponent(jButtonChangePass))
+                .addContainerGap(307, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -152,7 +171,7 @@ public class UserPage extends javax.swing.JPanel {
                 Logger.getLogger(Main_Board.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (image != null) {
-                Image scaledImage = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+                Image scaledImage = image.getScaledInstance(258, 225, Image.SCALE_SMOOTH);
                 ImageIcon carImageIcon = new ImageIcon(scaledImage);
 
                 jLabelUserPhoto.setIcon(carImageIcon);
@@ -224,9 +243,16 @@ public class UserPage extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonChangeAvatarActionPerformed
 
+    private void jButtonChangePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangePassActionPerformed
+        ChangePass pass = new ChangePass(user.getPass(),user.getUsername());
+        pass.setVisible(true);
+        pass.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jButtonChangePassActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonChangeAvatar;
+    private javax.swing.JButton jButtonChangePass;
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelUserPhoto;

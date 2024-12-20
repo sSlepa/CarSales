@@ -244,6 +244,8 @@ public class Login_Page extends javax.swing.JFrame {
                 String username = rs.getString("username");
                 String email = rs.getString("email");
                 password = rs.getString("password");
+                
+                //System.out.println(password);
                 boolean isAdmin = rs.getBoolean("adm");
                 boolean isGuest = rs.getBoolean("guest");
                 String profilepic = rs.getString("profilepic");

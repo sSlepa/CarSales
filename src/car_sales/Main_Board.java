@@ -111,7 +111,7 @@ public class Main_Board extends javax.swing.JFrame {
         jLabelUserPhoto.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == MouseEvent.BUTTON1 ) { 
+                if (e.getButton() == MouseEvent.BUTTON1 && user.isGuest() == false) { 
                     UserPage usrpage = new UserPage(user,mainboard);
                     MainPanel.removeAll();
                     MainPanel.add(usrpage);

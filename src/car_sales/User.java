@@ -56,6 +56,9 @@ public class User {
     public String getProfilePic() {
         return profilepic;
     }
+    public String getPass(){
+        return password;
+    }
 
     public String getEmail() {
         return email;
