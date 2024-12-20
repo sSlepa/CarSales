@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.Timer;
 
 /**
@@ -40,7 +41,7 @@ public class Login_Page extends javax.swing.JFrame {
         JText_Username = new javax.swing.JTextField();
         jPassCheckBox = new javax.swing.JCheckBox();
         jButton_login = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonForgotPassword = new javax.swing.JButton();
         jPassword = new javax.swing.JPasswordField();
         Login_MainMenu = new javax.swing.JButton();
         jLabelLoginFailed = new javax.swing.JLabel();
@@ -91,7 +92,12 @@ public class Login_Page extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Forgot Password");
+        jButtonForgotPassword.setText("Forgot Password");
+        jButtonForgotPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonForgotPasswordActionPerformed(evt);
+            }
+        });
 
         jPassword.setText("password");
         jPassword.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -141,7 +147,7 @@ public class Login_Page extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jPassCheckBox)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jButtonForgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel_Login_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JText_Username)
                                     .addComponent(jPassword)))
@@ -166,7 +172,7 @@ public class Login_Page extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPassCheckBox)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonForgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -314,6 +320,12 @@ public class Login_Page extends javax.swing.JFrame {
             JText_Username.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_JText_UsernameFocusGained
+
+    private void jButtonForgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonForgotPasswordActionPerformed
+        RecoverPassword recover = new RecoverPassword();
+        recover.setVisible(true);
+        recover.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jButtonForgotPasswordActionPerformed
         
     
     /**
@@ -357,7 +369,7 @@ public class Login_Page extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JText_Username;
     private javax.swing.JButton Login_MainMenu;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonForgotPassword;
     private javax.swing.JButton jButton_login;
     private javax.swing.JLabel jLabelLoginFailed;
     private javax.swing.JLabel jLabel_Login_Text;

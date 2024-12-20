@@ -67,7 +67,7 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jPassCheckBox" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace pref="70" max="32767" attributes="0"/>
-                                              <Component id="jButton2" min="-2" pref="143" max="-2" attributes="0"/>
+                                              <Component id="jButtonForgotPassword" min="-2" pref="143" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel_Login_Text" min="-2" pref="169" max="-2" attributes="0"/>
                                           <Component id="JText_Username" alignment="0" max="32767" attributes="0"/>
@@ -101,7 +101,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jPassCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="jButtonForgotPassword" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -167,10 +167,13 @@
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jButton_login.setFocusPainted(false); &#xa;jButton_login.setBorderPainted(false);"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="jButtonForgotPassword">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Forgot Password"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonForgotPasswordActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPassword">
               <Properties>

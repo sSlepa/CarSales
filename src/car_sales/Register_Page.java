@@ -351,7 +351,7 @@ public class Register_Page extends javax.swing.JFrame {
 
             if(ok == 1){
                 
-                String codeSS = EmailSender.sendVerificationEmail(emailSS);
+                String codeSS = EmailSender.sendVerificationEmail(emailSS,1);
                 
                 Register_Verify verify = new Register_Verify(codeSS,usernameSS,emailSS,passwordSS);
                 verify.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
