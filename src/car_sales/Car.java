@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.util.List;
 
 public class Car {
+    
     private String id;
     private String name;
     private String model;
@@ -19,7 +20,7 @@ public class Car {
     private List<BufferedImage> images;
     
     /**
-     * 
+     * Constructor cu toti parametrii pentru masina.
      * @param name Numele masinii
      * @param model Modelul masinii
      * @param price Pretul in dolari
@@ -49,7 +50,7 @@ public class Car {
     }
 
     /**
-     * Functie de tip get ce returneaza numele
+     * Metoda de tip get ce returneaza numele
      */
     public String getName() { 
         return name; 

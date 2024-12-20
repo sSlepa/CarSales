@@ -42,8 +42,6 @@ public class Testing {
 
         
         Car car = new Car("0","BMW", "M3", "50000", "30000", "Manual", "Petrol", "2022", "450 HP", "3.0L V6", "Black", images);
-
-        // Verificăm valorile prin getter-e
         assertEquals("BMW", car.getName());
         assertEquals("M3", car.getModel());
         assertEquals("50000", car.getPrice());
@@ -70,4 +68,6 @@ public class Testing {
         assertTrue(user.isAdmin());
         assertFalse(user.isGuest());
     }
+    
+    
 }

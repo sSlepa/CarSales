@@ -9,15 +9,14 @@ public class EmailSender {
     // Metodă pentru trimiterea unui email cu codul de verificare
     public static String sendVerificationEmail(String userEmail) {
         String smtpHost = "smtp.gmail.com";
-        int smtpPort = 465; // Portul pentru SSL
+        int smtpPort = 465; // SSL
         String senderEmail = "carnenebuna@gmail.com";  // Schimbă cu email-ul tău
         String senderPassword = "pdan semn amui yogv"; // App password pentru Gmail
-        String verificationCode = generateVerificationCode(); // Codul de verificare
+        String verificationCode = generateVerificationCode();
 
-        // Configurarea proprietăților SMTP
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.ssl.enable", "true");  // Activarea SSL pentru portul 465
+        properties.put("mail.smtp.ssl.enable", "true");  
         properties.put("mail.smtp.host", smtpHost);
         properties.put("mail.smtp.port", smtpPort);
 

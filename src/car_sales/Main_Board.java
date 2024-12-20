@@ -85,6 +85,7 @@ public class Main_Board extends javax.swing.JFrame {
     }
     
     public void usr_page(){
+       
         BufferedImage image = null;
         try {
             image = ImageIO.read(new File("C:\\Users\\adria\\Documents\\NetBeansProjects\\Car_Sales\\src\\car_sales\\imagini\\useracc.png"));
@@ -99,6 +100,21 @@ public class Main_Board extends javax.swing.JFrame {
             jLabelUserPhoto.setHorizontalAlignment(JLabel.CENTER); // Centrare pe orizontală
             jLabelUserPhoto.setVerticalAlignment(JLabel.CENTER);   // Centrare pe verticală
         }
+        jLabelUserPhoto.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == MouseEvent.BUTTON1) { // Verificăm dacă este clic stânga
+                    UserPage usrpage = new UserPage(user);
+                    MainPanel.removeAll();
+                    MainPanel.add(usrpage);
+                    MainPanel.revalidate();
+                    MainPanel.repaint();
+
+                    
+                }
+            }
+        });
+        
         
     }
     
@@ -156,8 +172,6 @@ public class Main_Board extends javax.swing.JFrame {
                     );
 
                     if (response == JOptionPane.YES_OPTION) {
-                        
-          
                         /// Sterg din DB;
                         
                         java.sql.Connection c = null;

@@ -13,18 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 
-/**
- *
- * @author adria
- */
+
 public class Home_Page extends javax.swing.JFrame {
     
     private static List<Car> vect;
-    
-    /**
-     * Creates new form Home_page
-     * 
-    **/
+ 
+       
     public List<Car> getList(){
         return vect;
     }
@@ -64,13 +58,13 @@ public class Home_Page extends javax.swing.JFrame {
                 List<BufferedImage> images = new ArrayList<>();
                 
                 java.io.File folder = new File(imagesPath);
-                if (folder.exists() && folder.isDirectory()) {
-                    // Listați toate fișierele din folder
+                if(folder.exists() && folder.isDirectory()) {
+                    
                     java.io.File[] files;
                     files = folder.listFiles(new FilenameFilter() {
                         @Override
                         public boolean accept(File dir, String name) {
-                            // Filtrăm doar fișierele de tip imagine
+                            
                             return name.toLowerCase().endsWith(".jpg") ||
                                     name.toLowerCase().endsWith(".png") ||
                                     name.toLowerCase().endsWith(".jpeg");
@@ -80,13 +74,13 @@ public class Home_Page extends javax.swing.JFrame {
                     if (files != null) {
                         for (File file : files) {
                             try {
-                                // Încărcați imaginea în memorie
+                                
                                 BufferedImage image = ImageIO.read(file);
                                 if (image != null) {
-                                    images.add(image); // Adăugați imaginea în listă
+                                    images.add(image); 
                                 }
                             } catch (IOException e) {
-                                System.err.println("Nu s-a putut încărca imaginea: " + file.getName());
+                                System.err.println("Nu s-a putut încarca imaginea: " + file.getName());
                                 e.printStackTrace();
                             }
                         }
