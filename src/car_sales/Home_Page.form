@@ -29,7 +29,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="33" type="rgb"/>
+          <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -83,6 +83,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GuestMode_HomeButtonActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="GuestMode_HomeButton.setFocusPainted(false);      // Elimin&#x103; border-ul de focus&#xa;GuestMode_HomeButton.setBorderPainted(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="Register_HomeButton">
           <Properties>
@@ -94,6 +97,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Register_HomeButtonActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Register_HomeButton.setFocusPainted(false);      // Elimin&#x103; border-ul de focus&#xa;Register_HomeButton.setBorderPainted(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="Login_HomeButton">
           <Properties>
@@ -105,6 +111,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Login_HomeButtonActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Login_HomeButton.setFocusPainted(false);      // Elimin&#x103; border-ul de focus&#xa;Login_HomeButton.setBorderPainted(false);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

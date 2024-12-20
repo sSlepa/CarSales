@@ -52,7 +52,7 @@ public class Login_Page extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_Logo.setBackground(new java.awt.Color(51, 204, 255));
+        jLabel_Logo.setBackground(new java.awt.Color(51, 51, 51));
         jLabel_Logo.setOpaque(true);
 
         jLabel_Login_Text.setFont(new java.awt.Font("Visitor TT1 BRK", 1, 55)); // NOI18N

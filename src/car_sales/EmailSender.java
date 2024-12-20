@@ -34,25 +34,24 @@ public class EmailSender {
             message.setFrom(new InternetAddress(senderEmail));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(userEmail));
             message.setSubject("Codul de verificare pentru contul tău");
-            message.setText("Codul tău de verificare este: " + verificationCode);
+            message.setText("Codul dvs. de verificare este: " + verificationCode);
 
             // Trimiterea mesajului
             Transport.send(message);
-            System.out.println("Email trimis cu succes la: " + userEmail);
+            //System.out.println("Email trimis cu succes la: " + userEmail);
             
             
             
         } catch (MessagingException e) {
             e.printStackTrace();
-            System.out.println("A apărut o eroare la trimiterea email-ului.");
+            System.out.println("A aparut o eroare la trimiterea email-ului.");
         }
         return verificationCode;
     }
 
-    // Metodă pentru generarea unui cod de verificare random
     private static String generateVerificationCode() {
         Random random = new Random();
-        int code = 100000 + random.nextInt(900000); // Generează un cod de 6 cifre
+        int code = 100000 + random.nextInt(900000); 
         return String.valueOf(code);
     }
 }

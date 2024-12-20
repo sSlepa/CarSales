@@ -1,5 +1,6 @@
 package car_sales;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -30,8 +31,14 @@ public class UserPage extends javax.swing.JPanel {
             jLabelUserPhoto.setHorizontalAlignment(JLabel.CENTER); // Centrare pe orizontală
             jLabelUserPhoto.setVerticalAlignment(JLabel.CENTER);   // Centrare pe verticală
         }
-        jLabelName.setText(user.getUsername());
-        jLabelName.setFont(new Font("Serif", Font.PLAIN, 38));
+        jLabelName.setText("Username: " + user.getUsername());
+        jLabelName.setFont(new Font("Serif", Font.PLAIN, 32));
+        jLabelName.setForeground(Color.white);
+        jLabelEmail.setText("Email: " + user.getEmail());
+        jLabelEmail.setFont(new Font("Serif", Font.PLAIN, 32));
+        jLabelEmail.setForeground(Color.white);
+        
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -41,13 +48,16 @@ public class UserPage extends javax.swing.JPanel {
         jPanelUserPage = new javax.swing.JPanel();
         jLabelUserPhoto = new javax.swing.JLabel();
         jLabelName = new javax.swing.JLabel();
+        jLabelEmail = new javax.swing.JLabel();
 
-        jPanelUserPage.setBackground(new java.awt.Color(0, 204, 255));
+        jPanelUserPage.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabelUserPhoto.setBackground(new java.awt.Color(0, 102, 204));
         jLabelUserPhoto.setText("poza");
 
         jLabelName.setText("Name");
+
+        jLabelEmail.setText("Email");
 
         javax.swing.GroupLayout jPanelUserPageLayout = new javax.swing.GroupLayout(jPanelUserPage);
         jPanelUserPage.setLayout(jPanelUserPageLayout);
@@ -56,17 +66,22 @@ public class UserPage extends javax.swing.JPanel {
             .addGroup(jPanelUserPageLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelName, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanelUserPageLayout.setVerticalGroup(
             jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUserPageLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelUserPageLayout.createSequentialGroup()
+                        .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(405, Short.MAX_VALUE))
         );
 
@@ -84,6 +99,7 @@ public class UserPage extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelUserPhoto;
     private javax.swing.JPanel jPanelUserPage;

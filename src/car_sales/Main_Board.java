@@ -103,13 +103,15 @@ public class Main_Board extends javax.swing.JFrame {
         jLabelUserPhoto.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == MouseEvent.BUTTON1) { // Verificăm dacă este clic stânga
+                if (e.getButton() == MouseEvent.BUTTON1 ) { // Verificăm dacă este clic stânga
                     UserPage usrpage = new UserPage(user);
                     MainPanel.removeAll();
                     MainPanel.add(usrpage);
                     MainPanel.revalidate();
                     MainPanel.repaint();
-
+                    jButtonBack.setVisible(false);
+                    jButtonNext.setVisible(false);
+                    jLabelPageNumber.setVisible(false);
                     
                 }
             }
@@ -145,10 +147,13 @@ public class Main_Board extends javax.swing.JFrame {
                 carImage.setVerticalAlignment(JLabel.CENTER);   
             }
 
-            // Crearea JLabel pentru detalii despre mașină
-            JLabel carDetails = new JLabel("<html><b>" + vect.get(i).getName() + " " + vect.get(i).getModel() + "</b><br><br>"
-                    + "Preț: " + vect.get(i).getPrice() + "<br><br>"
-                    + "Km: " + vect.get(i).getKilometers() + "");
+            
+            JLabel carDetails = new JLabel("<html><b>&nbsp;&nbsp;&nbsp;&nbsp;" + vect.get(i).getName() + " " + vect.get(i).getModel() + "</b><br><br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;Pret: " + vect.get(i).getPrice() + "<br><br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;Km: " + vect.get(i).getKilometers() + "");
+            
+            carDetails.setFont(new Font("Arial", Font.PLAIN, 18));
+            
             carDetails.setVerticalAlignment(SwingConstants.CENTER);
             
             JPanel deletePanel = null;
@@ -384,7 +389,7 @@ public class Main_Board extends javax.swing.JFrame {
         });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("USER");
+        jLabel1.setText("ACCOUNT");
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);

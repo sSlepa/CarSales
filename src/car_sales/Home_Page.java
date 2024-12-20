@@ -117,8 +117,10 @@ public class Home_Page extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
+        GuestMode_HomeButton.setFocusPainted(false);      // Elimină border-ul de focus
+        GuestMode_HomeButton.setBorderPainted(false);
         GuestMode_HomeButton.setBackground(new java.awt.Color(153, 153, 153));
         GuestMode_HomeButton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         GuestMode_HomeButton.setText("Guest Mode");
@@ -128,6 +130,8 @@ public class Home_Page extends javax.swing.JFrame {
             }
         });
 
+        Register_HomeButton.setFocusPainted(false);      // Elimină border-ul de focus
+        Register_HomeButton.setBorderPainted(false);
         Register_HomeButton.setFont(new java.awt.Font("Visitor TT1 BRK", 1, 18)); // NOI18N
         Register_HomeButton.setText("Register");
         Register_HomeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +140,8 @@ public class Home_Page extends javax.swing.JFrame {
             }
         });
 
+        Login_HomeButton.setFocusPainted(false);      // Elimină border-ul de focus
+        Login_HomeButton.setBorderPainted(false);
         Login_HomeButton.setFont(new java.awt.Font("Visitor TT1 BRK", 1, 18)); // NOI18N
         Login_HomeButton.setText("Log In");
         Login_HomeButton.addActionListener(new java.awt.event.ActionListener() {
