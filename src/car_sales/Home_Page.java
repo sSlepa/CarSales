@@ -188,7 +188,7 @@ public class Home_Page extends javax.swing.JFrame {
 
     private void GuestMode_HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuestMode_HomeButtonActionPerformed
         // TODO add your handling code here:
-        User user = new User("Guest","","",false,true);
+        User user = new User("Guest","","",false,true,"C:\\Users\\adria\\Documents\\NetBeansProjects\\Car_Sales\\src\\car_sales\\imagini\\useracc.png");
         Main_Board main_board = new Main_Board(user,this.getList());
         main_board.setVisible(true);
         this.dispose();

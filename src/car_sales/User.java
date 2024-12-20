@@ -8,6 +8,7 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String profilepic;
     private boolean isAdmin;
     private boolean isGuest;
 
@@ -19,12 +20,13 @@ public class User {
      * @param isAdmin identificator admin
      * @param isGuest identificator guest
      */
-    public User(String username, String email, String password, boolean isAdmin, boolean isGuest) {
+    public User(String username, String email, String password, boolean isAdmin, boolean isGuest,String profilepic) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.isAdmin = isAdmin;
         this.isGuest = isGuest;
+        this.profilepic = profilepic;
     }
 
     // Setters
@@ -43,10 +45,16 @@ public class User {
     public void setIsGuest(boolean isGuest) {
         this.isGuest = isGuest;
     }
+    public void setProfilePic(String path) {
+        this.profilepic = path;
+    }
 
     // Getters
     public String getUsername() {
         return username;
+    }
+    public String getProfilePic() {
+        return profilepic;
     }
 
     public String getEmail() {

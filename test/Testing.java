@@ -59,7 +59,7 @@ public class Testing {
     @Test
     public void testUserConstructorAndGetters() {
         
-        User user = new User("testUser", "test@example.com", "password123", true, false);
+        User user = new User("testUser", "test@example.com", "password123", true, false," ");
 
        
         assertEquals("testUser", user.getUsername());

@@ -84,16 +84,24 @@ public class Main_Board extends javax.swing.JFrame {
 
     }
     
+    public void setLabelIcon(ImageIcon carImageIcon){
+        jLabelUserPhoto.setIcon(carImageIcon);
+        jLabelUserPhoto.setHorizontalAlignment(JLabel.CENTER); // Centrare pe orizontală
+        jLabelUserPhoto.setVerticalAlignment(JLabel.CENTER);   // Centrare pe verticală
+    }
+    
     public void usr_page(){
        
         BufferedImage image = null;
+        Main_Board mainboard = this;
+        
         try {
-            image = ImageIO.read(new File("C:\\Users\\adria\\Documents\\NetBeansProjects\\Car_Sales\\src\\car_sales\\imagini\\useracc.png"));
+            image = ImageIO.read(new File(user.getProfilePic()));
         } catch (IOException ex) {
             Logger.getLogger(Main_Board.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (image != null) {
-            Image scaledImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH); // Scalare
+            Image scaledImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH);
             ImageIcon carImageIcon = new ImageIcon(scaledImage);
             
             jLabelUserPhoto.setIcon(carImageIcon);
@@ -103,8 +111,8 @@ public class Main_Board extends javax.swing.JFrame {
         jLabelUserPhoto.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == MouseEvent.BUTTON1 ) { // Verificăm dacă este clic stânga
-                    UserPage usrpage = new UserPage(user);
+                if (e.getButton() == MouseEvent.BUTTON1 ) { 
+                    UserPage usrpage = new UserPage(user,mainboard);
                     MainPanel.removeAll();
                     MainPanel.add(usrpage);
                     MainPanel.revalidate();

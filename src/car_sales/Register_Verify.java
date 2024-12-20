@@ -131,7 +131,7 @@ public class Register_Verify extends javax.swing.JFrame {
         // TODO add your handling code here:
        if(VerifyInput.getText().equals(codde)){
            
-           String query = "INSERT INTO users (id,username,email,password,adm,guest) VALUES (?,?,?,?,?,?);";
+           String query = "INSERT INTO users (id,username,email,password,adm,guest,profilepic) VALUES (?,?,?,?,?,?,?);";
            
            Connection c = null;
 
@@ -149,6 +149,7 @@ public class Register_Verify extends javax.swing.JFrame {
                 preparedStatement.setString(4, pass);
                 preparedStatement.setInt(5, 0);
                 preparedStatement.setInt(6,0);
+                preparedStatement.setString(7,"C:\\Users\\adria\\Documents\\NetBeansProjects\\Car_Sales\\src\\car_sales\\imagini\\useracc.png");
 
                 preparedStatement.executeUpdate();
 

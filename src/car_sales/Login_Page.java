@@ -246,9 +246,10 @@ public class Login_Page extends javax.swing.JFrame {
                 password = rs.getString("password");
                 boolean isAdmin = rs.getBoolean("adm");
                 boolean isGuest = rs.getBoolean("guest");
+                String profilepic = rs.getString("profilepic");
 
                 // Creăm un nou obiect User folosind constructorul
-                User user = new User(username, email, password, isAdmin, isGuest);
+                User user = new User(username, email, password, isAdmin, isGuest,profilepic);
                 
                 Main_Board main_board = new Main_Board(user,ls);
                 main_board.setVisible(true);
