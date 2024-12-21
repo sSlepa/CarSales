@@ -1,5 +1,6 @@
-package car_sales;
+package Utilitary;
 
+import car_sales.Register_Page;
 import java.sql.*;
 import javax.swing.JOptionPane;
 

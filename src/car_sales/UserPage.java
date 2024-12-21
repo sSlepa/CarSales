@@ -1,5 +1,6 @@
 package car_sales;
 
+import Utilitary.ChangePass;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -45,7 +46,7 @@ public class UserPage extends javax.swing.JPanel {
             Logger.getLogger(Main_Board.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (image != null) {
-            Image scaledImage = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH); // Scalare
+            Image scaledImage = image.getScaledInstance(377, 301, Image.SCALE_SMOOTH); // Scalare
             ImageIcon carImageIcon = new ImageIcon(scaledImage);
             
             jLabelUserPhoto.setIcon(carImageIcon);
@@ -98,38 +99,36 @@ public class UserPage extends javax.swing.JPanel {
         jPanelUserPageLayout.setHorizontalGroup(
             jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUserPageLayout.createSequentialGroup()
-                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelUserPageLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelUserPageLayout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jButtonChangeAvatar)))
+                        .addComponent(jButtonChangeAvatar)
+                        .addGap(143, 143, 143)
+                        .addComponent(jButtonChangePass))
+                    .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonChangePass)
-                    .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                    .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanelUserPageLayout.setVerticalGroup(
             jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUserPageLayout.createSequentialGroup()
                 .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelUserPageLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(35, 35, 35)
                         .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(32, 32, 32)
                         .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelUserPageLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonChangeAvatar)
-                    .addComponent(jButtonChangePass))
-                .addContainerGap(307, Short.MAX_VALUE))
+                    .addComponent(jButtonChangePass)
+                    .addComponent(jButtonChangeAvatar))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -171,7 +170,7 @@ public class UserPage extends javax.swing.JPanel {
                 Logger.getLogger(Main_Board.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (image != null) {
-                Image scaledImage = image.getScaledInstance(258, 225, Image.SCALE_SMOOTH);
+                Image scaledImage = image.getScaledInstance(377, 301, Image.SCALE_SMOOTH);
                 ImageIcon carImageIcon = new ImageIcon(scaledImage);
 
                 jLabelUserPhoto.setIcon(carImageIcon);

@@ -1,4 +1,4 @@
-package car_sales;
+package Utilitary;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package car_sales;
+import Utilitary.Register_Verify;
+import Utilitary.EmailSender;
 import java.sql.*;
 
 import java.awt.Color;

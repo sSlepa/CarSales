@@ -1,4 +1,4 @@
-package car_sales;
+package Utilitary;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
 import java.security.SecureRandom;
