@@ -52,7 +52,7 @@ public class AddCarPanel extends javax.swing.JPanel {
 
         jTextField10.setText("transmission");
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
         jTextAddName.setText("name");
         jTextAddName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -180,6 +180,7 @@ public class AddCarPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabelCarNum.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCarNum.setText("Cars");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

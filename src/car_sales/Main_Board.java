@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package car_sales;
 
 import Utilitary.AddCarPanel;
@@ -42,12 +38,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-/**
- *
- * @author adria
- */
+
 public class Main_Board extends javax.swing.JFrame {
 
     private static User user;
@@ -126,13 +120,11 @@ public class Main_Board extends javax.swing.JFrame {
             }
         });
         
-        
     }
-    
     public void load_page(){
         
         MainPanel.setLayout(new BoxLayout(MainPanel, BoxLayout.Y_AXIS));
-
+        
         for(int i = 5 * pagenr ; i < min(5 * (pagenr + 1) ,vect.size()); i++){
             //System.out.println(pagenr);
             
@@ -298,7 +290,7 @@ public class Main_Board extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        MainPanel.setBackground(new java.awt.Color(0, 204, 255));
+        MainPanel.setBackground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -512,6 +504,53 @@ public class Main_Board extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonContactMouseExited
 
     private void jButtonContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContactActionPerformed
+        MainPanel.removeAll();
+        jButtonBack.setVisible(false);
+        jButtonNext.setVisible(false);
+        jLabelPageNumber.setVisible(false);
+        
+        // Crearea unui JPanel pentru conținut
+        JPanel contentPanel = new JPanel();
+        contentPanel.setLayout(new BorderLayout());
+        contentPanel.setBackground(new Color(245, 245, 245));
+
+        // Adăugarea unui border la contentPanel
+        Border border = BorderFactory.createTitledBorder(
+                BorderFactory.createLineBorder(new Color(70, 130, 180), 2),
+                "Informatii de Contact",
+                javax.swing.border.TitledBorder.CENTER,
+                javax.swing.border.TitledBorder.TOP,
+                new Font("Arial", Font.BOLD, 14),
+                new Color(70, 130, 180)
+        );
+        contentPanel.setBorder(border);
+
+        // Crearea unui JLabel pentru imagine (poza/logo)
+        
+
+        // Crearea unui JLabel pentru informațiile de contact
+        JLabel contactLabel = new JLabel("<html>"
+                + "<h1 style='text-align: center; color: #2E86C1;'>Contact Parc Auto</h1>"
+                + "<p style='text-align: center; font-size: 14px;'>Telefon: <b>+40 751 452 483</b></p>"
+                + "<p style='text-align: center; font-size: 14px;'>Email: <b>carnenebuna@gmail.com</b></p>"
+                + "<p style='text-align: center; font-size: 14px;'>Adresa: <b>Str. Auto nr. 10, Bucuresti</b></p>"
+                + "</html>");
+        contactLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        contentPanel.add(contactLabel, BorderLayout.CENTER);
+
+        // Crearea unui JPanel pentru footer
+        JPanel footerPanel = new JPanel();
+        footerPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        footerPanel.setBackground(new Color(220, 220, 220));
+        JLabel footerLabel = new JLabel("© 2024 SSW. Toate drepturile rezervate.");
+        footerLabel.setFont(new Font("Arial", Font.ITALIC, 12));
+        footerPanel.add(footerLabel);
+
+        
+        MainPanel.add(contentPanel, BorderLayout.CENTER);
+        MainPanel.add(footerPanel, BorderLayout.SOUTH);
+        MainPanel.repaint();
+        MainPanel.revalidate();
         
     }//GEN-LAST:event_jButtonContactActionPerformed
 
