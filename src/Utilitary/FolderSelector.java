@@ -8,10 +8,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- *
- * @author adria
- */
 public class FolderSelector extends javax.swing.JFrame {
     
     public static String folderPath;
@@ -32,7 +28,8 @@ public class FolderSelector extends javax.swing.JFrame {
             File selectedFolder = jFileChooser1.getSelectedFile();
             folderPath = selectedFolder.getAbsolutePath();
             System.out.println("Folder selectat: " + folderPath);
-        } else {
+        } 
+        else {
             System.out.println("Selecția folderului a fost anulată.");
         }
     }
@@ -70,9 +67,6 @@ public class FolderSelector extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jFileChooser1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

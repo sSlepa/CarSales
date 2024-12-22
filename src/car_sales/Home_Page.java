@@ -87,11 +87,11 @@ public class Home_Page extends javax.swing.JFrame {
                     }
                 } 
                 else {
-                    System.err.println("Folderul specificat nu există sau nu este un director.");
+                    System.err.println("Folderul specificat nu exista sau nu este un director.");
                 }
 
                 
-                //System.out.println("Număr de imagini încărcate: " + images.size());
+                
                 vect.add(new Car(id,name,model,price,kilometers,transmission,fuelType,year,power,engine,color,images));
                 
             }
@@ -200,9 +200,6 @@ public class Home_Page extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Register_HomeButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

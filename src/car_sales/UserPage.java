@@ -125,7 +125,7 @@ public class UserPage extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabelUserPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelUserPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonChangePass)
                     .addComponent(jButtonChangeAvatar))
                 .addContainerGap(231, Short.MAX_VALUE))
@@ -202,9 +202,10 @@ public class UserPage extends javax.swing.JPanel {
             String newImagePath = destinationFile.getAbsolutePath();
             
             user.setProfilePic(destinationFile.getAbsolutePath());
-                try {
+            try {
                 image = ImageIO.read(new File(user.getProfilePic()));
-            } catch (IOException ex) {
+            } 
+            catch (IOException ex) {
                 Logger.getLogger(Main_Board.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (image != null) {

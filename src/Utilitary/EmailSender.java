@@ -7,11 +7,10 @@ import java.util.Random;
 
 public class EmailSender {
 
-    // Metodă pentru trimiterea unui email cu codul de verificare
     public static String sendVerificationEmail(String userEmail, int emailType) {
         String smtpHost = "smtp.gmail.com";
         int smtpPort = 465; // SSL
-        String senderEmail = "carnenebuna@gmail.com";  // Schimbă cu email-ul tău
+        String senderEmail = "carnenebuna@gmail.com";  
         String senderPassword = "pdan semn amui yogv"; // App password pentru Gmail
         String verificationCode = generateVerificationCode();
         String newgenpass = generatePassword();
@@ -22,7 +21,7 @@ public class EmailSender {
         properties.put("mail.smtp.host", smtpHost);
         properties.put("mail.smtp.port", smtpPort);
 
-        // Crearea sesiunii
+        
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -32,14 +31,14 @@ public class EmailSender {
         
         if(emailType == 1){
             try {
-                // Crearea mesajului
+                
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(senderEmail));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(userEmail));
                 message.setSubject("Codul de verificare pentru contul tău");
                 message.setText("Codul dvs. de verificare este: " + verificationCode);
 
-                // Trimiterea mesajului
+                
                 Transport.send(message);
                 //System.out.println("Email trimis cu succes la: " + userEmail);
 
@@ -52,16 +51,16 @@ public class EmailSender {
         else if(emailType == 2){
             
             try {
-                // Crearea mesajului
+                
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(senderEmail));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(userEmail));
                 message.setSubject("Password Recovery");
                 message.setText("Noua dvs. parola este " + newgenpass);
 
-                // Trimiterea mesajului
+                
                 Transport.send(message);
-                //System.out.println("Email trimis cu succes la: " + userEmail);
+                
 
             } catch (MessagingException e) {
                 e.printStackTrace();

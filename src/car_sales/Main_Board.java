@@ -65,14 +65,14 @@ public class Main_Board extends javax.swing.JFrame {
         jButtonBack.setVisible(false);
         jButtonNext.setVisible(false);
         jLabelPageNumber.setVisible(false);
-        // Creăm un nou JFrame pentru a arăta informațiile extinse
+      
         MainPanel.removeAll();
         
         carDetailPanel carDetailPanel = new carDetailPanel(car);
         
         MainPanel.add(carDetailPanel);
 
-        // Actualizăm fereastra pentru a reflecta modificările
+
         MainPanel.revalidate();
         MainPanel.repaint();
         
@@ -92,7 +92,8 @@ public class Main_Board extends javax.swing.JFrame {
         
         try {
             image = ImageIO.read(new File(user.getProfilePic()));
-        } catch (IOException ex) {
+        } 
+        catch (IOException ex) {
             Logger.getLogger(Main_Board.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (image != null) {
@@ -131,7 +132,7 @@ public class Main_Board extends javax.swing.JFrame {
             JPanel carPanel = new JPanel();
             carPanel.setLayout(new BorderLayout());
             carPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY)); 
-            carPanel.setPreferredSize(new Dimension(800, 120)); // Dimensiune fixă a fiecărui panou
+            carPanel.setPreferredSize(new Dimension(800, 120));
 
             
             JLabel carImage = new JLabel();
@@ -172,7 +173,7 @@ public class Main_Board extends javax.swing.JFrame {
                 deleteButton.addActionListener(e -> {
                     int response = JOptionPane.showConfirmDialog(
                         MainPanel,
-                        "Esti sigur ca vrei sa stergi aceasta mașin?",
+                        "Esti sigur ca vrei sa stergi aceasta mașina",
                         "Confirmare stergere",
                         JOptionPane.YES_NO_OPTION
                     );

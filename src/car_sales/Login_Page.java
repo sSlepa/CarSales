@@ -16,9 +16,6 @@ import javax.swing.Timer;
 public class Login_Page extends javax.swing.JFrame {
 
     private static List<Car> ls;
-    /**
-     * Creates new form Login_Page
-     */
     public Login_Page(List<Car> a) {
         
         this.ls = a;
@@ -29,8 +26,6 @@ public class Login_Page extends javax.swing.JFrame {
         
         
     }
-
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -484,11 +484,9 @@ public class AddCarPanel extends javax.swing.JPanel {
         
         File currentDir = new File(path);
 
-        // Obține lista de fișiere și directoare
+        
         File[] files = currentDir.listFiles();
 
-        // Verifică dacă directorul conține fișiere
-        
         int dirCount = 0;
         for (File file : files) {
             if (file.isDirectory()) {
