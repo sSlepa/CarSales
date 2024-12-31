@@ -25,10 +25,14 @@ This project is a robust automotive classifieds platform built using Java and Sw
 
 ## Screenshots
 
-<img src="githubphotos/GUI.png" width="500"/>
-<img src="githubphotos/GUI2.png" width="500"/>
-<img src="githubphotos/GUI3.png" width="500"/>
-<img src="githubphotos/GUI4.png" width="500"/>
+<div style="display: flex; justify-content: space-between;">
+  <img src="githubphotos/GUI.png" width="45%" />
+  <img src="githubphotos/GUI2.png" width="45%" />
+</div>
+<div style="display: flex; justify-content: space-between;">
+  <img src="githubphotos/GUI3.png" width="45%" />
+  <img src="githubphotos/GUI4.png" width="45%" />
+</div>
 
 ## Requirements
 - Java 11+
