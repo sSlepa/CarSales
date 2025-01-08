@@ -131,13 +131,18 @@ public class Register_Verify extends javax.swing.JFrame {
            String query = "INSERT INTO users (id,username,email,password,adm,guest,profilepic) VALUES (?,?,?,?,?,?,?);";
            
            Connection c = null;
+           
+           String url = "jdbc:mysql://localhost:3306/proiect_cars";
+           String userr = "root";
+           //<editor-fold defaultstate="collapsed" desc="Nu deschide">
+           String passwords = "smecher12@";
+           //</editor-fold>
 
            java.sql.Statement stmt = null;
            
            try {
 
-                Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+                c = DriverManager.getConnection(url, userr, passwords);
                 System.out.println("Register reusit.");
 
                 PreparedStatement preparedStatement = c.prepareStatement(query);

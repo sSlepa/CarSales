@@ -53,8 +53,11 @@ public class Main_Board extends javax.swing.JFrame {
     public Main_Board(User user,List<Car> anterior){
         this.user = user;
         this.vect = anterior;
-        this.pagemax = anterior.size() / 5 + 1;
-        
+        if(anterior.size() % 5 != 0)
+            this.pagemax = anterior.size() / 5 + 1;
+        else
+            this.pagemax = anterior.size() / 5;
+             
         initComponents();
         load_page();
         usr_page();
@@ -182,9 +185,13 @@ public class Main_Board extends javax.swing.JFrame {
                         /// Sterg din DB;
                         
                         java.sql.Connection c = null;
+                        String url = "jdbc:mysql://localhost:3306/proiect_cars";
+                        String userr = "root";
+                        //<editor-fold defaultstate="collapsed" desc="Nu deschide">
+                        String passwords = "smecher12@";
+                        //</editor-fold>
                         try{
-                            Class.forName("org.sqlite.JDBC");
-                            c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+                            c = DriverManager.getConnection(url, userr, passwords);
 
                             java.sql.PreparedStatement stmt = c.prepareStatement("DELETE FROM cars WHERE id = ?");
                             
@@ -205,6 +212,12 @@ public class Main_Board extends javax.swing.JFrame {
                         }
                         
                         vect.remove(carIndex);
+                        
+                        if(vect.size() % 5 != 0)
+                            this.pagemax = vect.size() / 5 + 1;
+                        else
+                            this.pagemax = vect.size() / 5;
+                        
                         
                         MainPanel.remove(carPanel); 
                         MainPanel.revalidate(); 

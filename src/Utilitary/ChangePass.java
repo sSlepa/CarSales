@@ -103,11 +103,17 @@ public class ChangePass extends javax.swing.JFrame {
         if(Register_Page.hashPassword(currentpass).equals(pass)){
             Connection c = null;
             
+            String url = "jdbc:mysql://localhost:3306/proiect_cars";
+            String userr = "root";
+            //<editor-fold defaultstate="collapsed" desc="Nu deschide">
+            String passwords = "smecher12@";
+            //</editor-fold>
+            
             String hashedpass = Register_Page.hashPassword(newpass);
             
             try{
-                Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+                
+                c = DriverManager.getConnection(url, userr, passwords);
                 
                 java.sql.PreparedStatement stmt = c.prepareStatement("UPDATE users SET password = ? WHERE username = ?");
                 

@@ -279,9 +279,15 @@ public class AddCarPanel extends javax.swing.JPanel {
             engine = jTextAddEngine.getText();
             imagesPath = FolderSelector.folderPath;
             
-            String query = "INSERT INTO cars (id,name,model,price,km,transmission,fuel,year,power,engine,color,imagess) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+            String query = "INSERT INTO cars (name,model,price,km,transmission,fuel,year,power,engine,color,imagess) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
            
             Connection c = null;
+            
+            String url = "jdbc:mysql://localhost:3306/proiect_cars";
+            String userr = "root";
+            //<editor-fold defaultstate="collapsed" desc="Nu deschide">
+            String passwords = "smecher12@";
+            //</editor-fold>
 
             java.sql.Statement stmt = null;
             
@@ -290,22 +296,21 @@ public class AddCarPanel extends javax.swing.JPanel {
                 !power.equals("power") && !color.equals("color") && !engine.equals("engine")) {
                 try {
 
-                    Class.forName("org.sqlite.JDBC");
-                    c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+                    c = DriverManager.getConnection(url, userr, passwords);
                     //System.out.println("Register reusit.");
 
                     PreparedStatement preparedStatement = c.prepareStatement(query);
-                    preparedStatement.setString(2, name);
-                    preparedStatement.setString(3, model);
-                    preparedStatement.setString(4, price);
-                    preparedStatement.setString(5, km);
-                    preparedStatement.setString(6, trans);
-                    preparedStatement.setString(7, fuel);
-                    preparedStatement.setString(8, year);
-                    preparedStatement.setString(9, power);
-                    preparedStatement.setString(10,engine);
-                    preparedStatement.setString(11, color);
-                    preparedStatement.setString(12, imagesPath);
+                    preparedStatement.setString(1, name);
+                    preparedStatement.setString(2, model);
+                    preparedStatement.setString(3, price);
+                    preparedStatement.setString(4, km);
+                    preparedStatement.setString(5, trans);
+                    preparedStatement.setString(6, fuel);
+                    preparedStatement.setString(7, year);
+                    preparedStatement.setString(8, power);
+                    preparedStatement.setString(9,engine);
+                    preparedStatement.setString(10, color);
+                    preparedStatement.setString(11, imagesPath);
 
                     preparedStatement.executeUpdate();
 

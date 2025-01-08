@@ -214,12 +214,16 @@ public class UserPage extends javax.swing.JPanel {
 
                 mainboard.setLabelIcon(carImageIcon);
                 
-            }            
+            }        
+            String url = "jdbc:mysql://localhost:3306/proiect_cars";
+            String userr = "root";
+            //<editor-fold defaultstate="collapsed" desc="Nu deschide">
+            String passwords = "smecher12@";
+            //</editor-fold>
             
             try{
                 
-                Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+                c = DriverManager.getConnection(url, userr, passwords);
                 
                 java.sql.PreparedStatement stmt = c.prepareStatement("UPDATE users SET profilepic = ? WHERE username = ?");
                 

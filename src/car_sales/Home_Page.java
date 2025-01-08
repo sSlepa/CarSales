@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.sql.DriverManager;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
@@ -30,11 +30,18 @@ public class Home_Page extends javax.swing.JFrame {
         
     }
     public void load_cars(){
-        java.sql.Connection c = null;
+        
+        Connection c = null;
+        
+        String url = "jdbc:mysql://localhost:3306/proiect_cars";
+        String userr = "root";
+        //<editor-fold defaultstate="collapsed" desc="Nu deschide">
+        String passwords = "smecher12@";
+        //</editor-fold>
 
         try{
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Car_Sale_DB.db");
+            
+            c = DriverManager.getConnection(url, userr, passwords);
 
             java.sql.PreparedStatement stmt = c.prepareStatement("SELECT * FROM cars");
             
