@@ -11,10 +11,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author adria
- */
 public class Testing {
     
     public Testing() {
@@ -53,6 +49,8 @@ public class Testing {
         assertEquals("3.0L V6", car.getEngine());
         assertEquals("Black", car.getColor());
         assertEquals(images, car.getImages());
+        
+        
     }
 
     // Teste pentru clasa User
@@ -61,7 +59,6 @@ public class Testing {
         
         User user = new User("testUser", "test@example.com", "password123", true, false," ");
 
-       
         assertEquals("testUser", user.getUsername());
         assertEquals("test@example.com", user.getEmail());
         //assertEquals("password123", user.getPassword());
