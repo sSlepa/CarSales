@@ -13,7 +13,7 @@ public class User {
     private boolean isGuest;
 
     /**
-     * JOKERO MAFIA DE GALATI
+     * 
      * @param username nume user
      * @param email email user
      * @param password parola criptata
