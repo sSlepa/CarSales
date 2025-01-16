@@ -1,6 +1,7 @@
-package car_sales;
+package forms;
 
-import Utilitary.ChangePass;
+import models.User;
+import utilitary.ChangePass;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;

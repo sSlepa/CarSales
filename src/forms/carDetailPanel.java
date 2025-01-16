@@ -1,5 +1,6 @@
-package car_sales;
+package forms;
 
+import models.Car;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -219,13 +220,12 @@ public class carDetailPanel extends javax.swing.JPanel {
                 .addGap(41, 41, 41)
                 .addGroup(jPanelInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelEngineIcon)
-                    .addGroup(jPanelInformationLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelEngine, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelKmIcon)
                     .addGroup(jPanelInformationLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabelKm, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanelInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelEngine, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelKm, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,13 +241,12 @@ public class carDetailPanel extends javax.swing.JPanel {
                 .addGap(271, 271, 271)
                 .addGroup(jPanelInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPowerIcon)
-                    .addGroup(jPanelInformationLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelPower, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelDateIcon)
                     .addGroup(jPanelInformationLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanelInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPower, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(85, 85, 85))
         );
         jPanelInformationLayout.setVerticalGroup(

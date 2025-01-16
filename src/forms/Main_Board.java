@@ -1,6 +1,10 @@
-package car_sales;
+package forms;
 
-import Utilitary.AddCarPanel;
+import forms.UserPage;
+import forms.carDetailPanel;
+import models.User;
+import models.Car;
+import utilitary.AddCarPanel;
 import com.sun.jdi.connect.spi.Connection;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -240,7 +244,7 @@ public class Main_Board extends javax.swing.JFrame {
                 final int xx = i;
                 carPanel.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
-                        // Când se face click pe panou, se deschide un nou JPanel cu informații extinse
+                        // Cand se face click pe panou, se deschide un nou JPanel cu informatii extinse
                         showCarDetails(vect.get(xx));
                     }
                 });

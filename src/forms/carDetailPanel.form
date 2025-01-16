@@ -132,14 +132,13 @@
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelEngineIcon" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Component id="jLabelEngine" min="-2" pref="157" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jLabelKmIcon" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Component id="jLabelKm" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelEngine" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="jLabelKm" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -162,14 +161,13 @@
                   <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelPowerIcon" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Component id="jLabelPower" min="-2" pref="157" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jLabelDateIcon" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Component id="jLabelDate" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelPower" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="jLabelDate" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>

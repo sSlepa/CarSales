@@ -1,4 +1,4 @@
-package car_sales;
+package models;
 
 import java.awt.image.BufferedImage;
 import javax.swing.*;

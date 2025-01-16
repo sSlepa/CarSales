@@ -1,6 +1,6 @@
 
-import car_sales.Car;
-import car_sales.User;
+import models.Car;
+import models.User;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;

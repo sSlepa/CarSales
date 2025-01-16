@@ -2,8 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package car_sales;
+package forms;
 
+import forms.Login_Page;
+import forms.Main_Board;
+import forms.Register_Page;
+import models.User;
+import models.Car;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;

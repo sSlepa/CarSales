@@ -1,5 +1,9 @@
-package car_sales;
-import Utilitary.RecoverPassword;
+package forms;
+import forms.Main_Board;
+import forms.Register_Page;
+import models.User;
+import models.Car;
+import utilitary.RecoverPassword;
 import java.sql.*;
 
 import java.awt.Color;
@@ -257,7 +261,7 @@ public class Login_Page extends javax.swing.JFrame {
                 boolean isGuest = rs.getBoolean("guest");
                 String profilepic = rs.getString("profilepic");
 
-                // Creăm un nou obiect User folosind constructorul
+                // Cream un nou obiect User folosind constructorul
                 User user = new User(username, email, password, isAdmin, isGuest,profilepic);
                 
                 Main_Board main_board = new Main_Board(user,ls);

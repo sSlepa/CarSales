@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package car_sales;
-import Utilitary.Register_Verify;
-import Utilitary.EmailSender;
+package forms;
+import utilitary.Register_Verify;
+import utilitary.EmailSender;
 import java.sql.*;
 
 import java.awt.Color;
@@ -36,7 +36,7 @@ public class Register_Page extends javax.swing.JFrame {
             for (byte b : hashedBytes) {
                 String hex = Integer.toHexString(0xff & b); // Extragem valoarea hexazecimală
                 if (hex.length() == 1) {
-                    hexString.append('0'); // Adăugăm un '0' pentru valori mai mici de 16
+                    hexString.append('0'); // Adaugam un '0' pentru valori mai mici de 16
                 }
                 hexString.append(hex);
             }
