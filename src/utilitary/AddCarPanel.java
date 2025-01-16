@@ -26,7 +26,7 @@ public class AddCarPanel extends javax.swing.JPanel {
     public AddCarPanel(int size) {
         this.size = size;
         initComponents();
-        jLabelCarNum.setText("Cars : " + size);
+        jLabelCarNum.setText("Cars : " + size);////4454554
     }
     
     @SuppressWarnings("unchecked")

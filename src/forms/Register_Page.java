@@ -17,10 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
-/**
- *
- * @author adria
- */
+///345454545
 public class Register_Page extends javax.swing.JFrame {
 
     public static String hashPassword(String password) {
